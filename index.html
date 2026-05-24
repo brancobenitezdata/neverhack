@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Branco Benitez — AI Solutions Architect</title>
+  <title>Branco Benitez — AI Architect · For Neverhack</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -13,7 +13,7 @@
     :root {
       --accent:      #c7f36b;
       --accent-dim:  rgba(199,243,107,.10);
-      --accent-glow: rgba(199,243,107,.20);
+      --accent-glow: rgba(199,243,107,.22);
       --bg:          #050505;
       --bg-raised:   #0c0c0c;
       --bg-card:     rgba(255,255,255,.03);
@@ -21,7 +21,7 @@
       --border-hi:   rgba(255,255,255,.13);
       --text:        #efefef;
       --text-muted:  #888;
-      --text-dim:    #4a4a4a;
+      --text-dim:    #444;
       --radius:      14px;
       --radius-lg:   22px;
       --font:        'Inter', -apple-system, sans-serif;
@@ -39,12 +39,11 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* Dot grid */
     body::before {
       content: '';
       position: fixed;
       inset: 0;
-      background-image: radial-gradient(circle, rgba(255,255,255,.032) 1px, transparent 1px);
+      background-image: radial-gradient(circle, rgba(255,255,255,.03) 1px, transparent 1px);
       background-size: 44px 44px;
       pointer-events: none;
       z-index: 0;
@@ -59,7 +58,7 @@
       z-index: 1;
     }
 
-    /* ━━━━━━━━━━━━━━━━━━━━━ HEADER ━━━━━━━━━━━━━━━━━━━━━ */
+    /* ━━━ HEADER ━━━ */
 
     header {
       position: fixed;
@@ -70,58 +69,30 @@
     }
 
     header.scrolled {
-      background: rgba(5,5,5,.88);
+      background: rgba(5,5,5,.9);
       backdrop-filter: blur(24px);
       -webkit-backdrop-filter: blur(24px);
       border-bottom: 1px solid var(--border);
     }
 
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+    nav { display: flex; justify-content: space-between; align-items: center; }
 
-    .logo {
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-      color: #fff;
-    }
-
+    .logo { font-size: 12px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: #fff; }
     .logo-accent { color: var(--accent); }
 
-    .nav-links {
-      display: flex;
-      gap: 28px;
-      align-items: center;
-    }
-
-    .nav-links a {
-      font-size: 13px;
-      color: var(--text-muted);
-      letter-spacing: .01em;
-      transition: color .2s;
-    }
-
+    .nav-links { display: flex; gap: 28px; align-items: center; }
+    .nav-links a { font-size: 13px; color: var(--text-muted); transition: color .2s; }
     .nav-links a:hover { color: var(--text); }
 
     .nav-cta {
-      padding: 8px 18px;
-      border-radius: 999px;
+      padding: 8px 18px; border-radius: 999px;
       border: 1px solid var(--border-hi) !important;
       color: var(--text) !important;
       transition: border-color .25s, background .25s !important;
     }
+    .nav-cta:hover { border-color: var(--accent) !important; background: var(--accent-dim) !important; }
 
-    .nav-cta:hover {
-      border-color: var(--accent) !important;
-      background: var(--accent-dim) !important;
-      color: var(--text) !important;
-    }
-
-    /* ━━━━━━━━━━━━━━━━━━━━━ HERO ━━━━━━━━━━━━━━━━━━━━━ */
+    /* ━━━ HERO ━━━ */
 
     .hero {
       min-height: 100vh;
@@ -133,10 +104,8 @@
     }
 
     .hero-orb {
-      position: absolute;
-      border-radius: 50%;
-      pointer-events: none;
-      filter: blur(120px);
+      position: absolute; border-radius: 50%;
+      pointer-events: none; filter: blur(120px);
     }
 
     .orb-1 {
@@ -148,7 +117,7 @@
 
     .orb-2 {
       width: 500px; height: 500px;
-      background: rgba(80,120,255,.035);
+      background: rgba(80,120,255,.032);
       bottom: 5%; left: -10%;
       animation: breathe 18s ease-in-out infinite reverse;
     }
@@ -159,886 +128,306 @@
     }
 
     .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      font-family: var(--mono);
-      font-size: 11px;
-      color: var(--accent);
-      text-transform: uppercase;
-      letter-spacing: .18em;
-      margin-bottom: 34px;
+      display: inline-flex; align-items: center; gap: 10px;
+      font-family: var(--mono); font-size: 11px; color: var(--accent);
+      text-transform: uppercase; letter-spacing: .18em; margin-bottom: 34px;
     }
-
-    .eyebrow-line {
-      display: block;
-      width: 28px; height: 1px;
-      background: var(--accent);
-    }
+    .eyebrow-line { display: block; width: 28px; height: 1px; background: var(--accent); }
 
     h1 {
-      font-size: clamp(46px, 7.5vw, 90px);
-      line-height: .94;
-      letter-spacing: -.05em;
-      font-weight: 700;
-      max-width: 880px;
+      font-size: clamp(44px, 7.5vw, 88px);
+      line-height: .94; letter-spacing: -.05em; font-weight: 700; max-width: 880px;
     }
-
-    h1 em {
-      font-style: normal;
-      color: var(--accent);
-    }
+    h1 em { font-style: normal; color: var(--accent); }
 
     .hero-sub {
-      margin-top: 30px;
-      max-width: 580px;
-      color: var(--text-muted);
-      font-size: 18px;
-      line-height: 1.72;
+      margin-top: 30px; max-width: 580px;
+      color: var(--text-muted); font-size: 18px; line-height: 1.72;
     }
 
     .hero-metrics {
-      display: flex;
-      align-items: stretch;
-      gap: 0;
-      margin-top: 52px;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      overflow: hidden;
-      width: fit-content;
-      background: var(--bg-card);
+      display: flex; align-items: stretch; gap: 0; margin-top: 48px;
+      border: 1px solid var(--border); border-radius: var(--radius);
+      overflow: hidden; width: fit-content; background: var(--bg-card);
     }
 
-    .metric {
-      padding: 18px 28px;
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-      border-right: 1px solid var(--border);
-    }
-
+    .metric { padding: 18px 28px; display: flex; flex-direction: column; gap: 4px; border-right: 1px solid var(--border); }
     .metric:last-child { border-right: none; }
+    .metric-num { font-size: 20px; font-weight: 700; letter-spacing: -.04em; color: #fff; }
+    .metric-label { font-family: var(--mono); font-size: 10px; color: var(--text-dim); text-transform: uppercase; letter-spacing: .1em; }
 
-    .metric-num {
-      font-size: 22px;
-      font-weight: 700;
-      letter-spacing: -.04em;
-      color: #fff;
-    }
-
-    .metric-label {
-      font-family: var(--mono);
-      font-size: 10px;
-      color: var(--text-dim);
-      text-transform: uppercase;
-      letter-spacing: .1em;
-    }
-
-    .buttons {
-      display: flex;
-      gap: 12px;
-      margin-top: 40px;
-      flex-wrap: wrap;
-    }
+    .buttons { display: flex; gap: 12px; margin-top: 36px; flex-wrap: wrap; }
 
     .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 13px 24px;
-      border-radius: 999px;
-      font-size: 14px;
-      font-weight: 500;
-      transition: all .25s;
-      cursor: pointer;
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 13px 24px; border-radius: 999px;
+      font-size: 14px; font-weight: 500; transition: all .25s;
     }
 
-    .btn-primary {
-      background: var(--accent);
-      color: #060606;
-      font-weight: 600;
-      border: none;
-    }
+    .btn-primary { background: var(--accent); color: #060606; font-weight: 600; border: none; }
+    .btn-primary:hover { background: #d4fb80; transform: translateY(-1px); box-shadow: 0 8px 28px rgba(199,243,107,.28); }
 
-    .btn-primary:hover {
-      background: #d4fb80;
-      transform: translateY(-1px);
-      box-shadow: 0 8px 28px rgba(199,243,107,.28);
-    }
+    .btn-ghost { border: 1px solid var(--border-hi); color: var(--text-muted); }
+    .btn-ghost:hover { border-color: rgba(255,255,255,.22); color: var(--text); background: rgba(255,255,255,.04); }
 
-    .btn-ghost {
-      border: 1px solid var(--border-hi);
-      color: var(--text-muted);
-    }
+    /* ━━━ SECTIONS ━━━ */
 
-    .btn-ghost:hover {
-      border-color: rgba(255,255,255,.22);
-      color: var(--text);
-      background: rgba(255,255,255,.04);
-    }
-
-    /* ━━━━━━━━━━━━━━━━━━━━━ SECTIONS ━━━━━━━━━━━━━━━━━━━━━ */
-
-    section {
-      padding: 100px 0;
-      position: relative;
-      z-index: 1;
-    }
+    section { padding: 100px 0; position: relative; z-index: 1; }
 
     .section-label {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      font-family: var(--mono);
-      font-size: 10px;
-      color: var(--accent);
-      text-transform: uppercase;
-      letter-spacing: .2em;
-      margin-bottom: 18px;
+      display: inline-flex; align-items: center; gap: 10px;
+      font-family: var(--mono); font-size: 10px; color: var(--accent);
+      text-transform: uppercase; letter-spacing: .2em; margin-bottom: 18px;
     }
+    .section-label::before { content: ''; display: block; width: 20px; height: 1px; background: var(--accent); opacity: .6; }
 
-    .section-label::before {
-      content: '';
-      display: block;
-      width: 20px; height: 1px;
-      background: var(--accent);
-      opacity: .6;
-    }
+    .section-h { font-size: clamp(28px, 4vw, 48px); font-weight: 700; letter-spacing: -.04em; line-height: 1.05; margin-bottom: 14px; }
+    .section-sub { color: var(--text-muted); font-size: 17px; max-width: 540px; line-height: 1.72; }
 
-    .section-h {
-      font-size: clamp(30px, 4vw, 50px);
-      font-weight: 700;
-      letter-spacing: -.04em;
-      line-height: 1.05;
-      margin-bottom: 14px;
-    }
-
-    .section-sub {
-      color: var(--text-muted);
-      font-size: 17px;
-      max-width: 540px;
-      line-height: 1.72;
-    }
-
-    /* ━━━━━━━━━━━━━━━━━━━━━ CARDS ━━━━━━━━━━━━━━━━━━━━━ */
+    /* ━━━ CARDS ━━━ */
 
     .card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 30px;
-      transition: border-color .3s, transform .3s, box-shadow .3s;
-      position: relative;
-      overflow: hidden;
+      background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg);
+      padding: 30px; transition: border-color .3s, transform .3s, box-shadow .3s;
+      position: relative; overflow: hidden;
     }
-
     .card::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(
-        circle at var(--mx, 50%) var(--my, 50%),
-        rgba(199,243,107,.05), transparent 60%
-      );
-      opacity: 0;
-      transition: opacity .4s;
-      pointer-events: none;
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(circle at var(--mx,50%) var(--my,50%), rgba(199,243,107,.05), transparent 60%);
+      opacity: 0; transition: opacity .4s; pointer-events: none;
     }
+    .card:hover::before { opacity: 1; }
+    .card:hover { border-color: var(--border-hi); transform: translateY(-2px); box-shadow: 0 16px 48px rgba(0,0,0,.35); }
 
-    .card:hover::before  { opacity: 1; }
-    .card:hover {
-      border-color: var(--border-hi);
-      transform: translateY(-2px);
-      box-shadow: 0 16px 48px rgba(0,0,0,.35);
-    }
+    /* ━━━ PROFILE ━━━ */
 
-    /* ━━━━━━━━━━━━━━━━━━━━━ PROFILE ━━━━━━━━━━━━━━━━━━━━━ */
-
-    .profile-layout {
-      display: grid;
-      grid-template-columns: 300px 1fr;
-      gap: 72px;
-      align-items: start;
-    }
-
-    .profile-sticky {
-      position: sticky;
-      top: 90px;
-    }
+    .profile-layout { display: grid; grid-template-columns: 300px 1fr; gap: 72px; align-items: start; }
+    .profile-sticky { position: sticky; top: 90px; }
 
     .photo-frame {
-      width: 100%;
-      aspect-ratio: 3/4;
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      border: 1px solid var(--border);
-      background: var(--bg-raised);
-      position: relative;
-      margin-bottom: 20px;
+      width: 100%; aspect-ratio: 3/4; border-radius: var(--radius-lg); overflow: hidden;
+      border: 1px solid var(--border); background: var(--bg-raised); position: relative; margin-bottom: 20px;
     }
-
-    .photo-frame img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center top;
-      filter: grayscale(10%) brightness(.95);
-    }
-
-    .photo-frame::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to bottom, transparent 55%, rgba(5,5,5,.55));
-    }
-
-    .photo-placeholder {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: var(--mono);
-      font-size: 11px;
-      color: var(--text-dim);
-      letter-spacing: .1em;
-    }
+    .photo-frame img { width: 100%; height: 100%; object-fit: cover; object-position: center top; filter: grayscale(10%) brightness(.95); }
+    .photo-frame::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, transparent 55%, rgba(5,5,5,.55)); }
+    .photo-placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-family: var(--mono); font-size: 11px; color: var(--text-dim); letter-spacing: .1em; }
 
     .status-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 9px;
-      padding: 9px 16px;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      background: var(--bg-card);
-      font-size: 12px;
-      color: var(--text-muted);
+      display: inline-flex; align-items: center; gap: 9px; padding: 9px 16px;
+      border-radius: 999px; border: 1px solid var(--border); background: var(--bg-card);
+      font-size: 12px; color: var(--text-muted);
     }
-
-    .status-dot {
-      width: 7px; height: 7px;
-      border-radius: 50%;
-      background: var(--accent);
-      flex-shrink: 0;
-      animation: pulse-dot 2.2s ease-in-out infinite;
-    }
+    .status-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); flex-shrink: 0; animation: pulse-dot 2.2s ease-in-out infinite; }
 
     @keyframes pulse-dot {
       0%,100% { box-shadow: 0 0 0 0 var(--accent-glow); }
       50%      { box-shadow: 0 0 0 6px transparent; }
     }
 
-    .profile-text p {
-      color: var(--text-muted);
-      font-size: 16.5px;
-      line-height: 1.78;
-      margin-bottom: 18px;
-    }
-
-    .profile-text p strong {
-      color: var(--text);
-      font-weight: 500;
-    }
+    .profile-text p { color: var(--text-muted); font-size: 16px; line-height: 1.78; margin-bottom: 18px; }
+    .profile-text p strong { color: var(--text); font-weight: 500; }
 
     .transition-block {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      padding: 18px 22px;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      background: var(--bg-card);
-      margin: 26px 0;
+      display: flex; align-items: center; gap: 16px; padding: 18px 22px;
+      border: 1px solid var(--border); border-radius: var(--radius); background: var(--bg-card); margin: 26px 0;
     }
-
     .trans-col { flex: 1; }
+    .trans-head { font-family: var(--mono); font-size: 10px; color: var(--text-dim); text-transform: uppercase; letter-spacing: .12em; margin-bottom: 6px; }
+    .trans-items { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+    .trans-arrow-col { font-size: 22px; color: var(--accent); flex-shrink: 0; }
 
-    .trans-head {
-      font-family: var(--mono);
-      font-size: 10px;
-      color: var(--text-dim);
-      text-transform: uppercase;
-      letter-spacing: .12em;
-      margin-bottom: 6px;
-    }
+    /* ━━━ PROJECTS ━━━ */
 
-    .trans-items {
-      font-size: 13px;
-      color: var(--text-muted);
-      line-height: 1.6;
-    }
-
-    .trans-arrow-col {
-      font-size: 22px;
-      color: var(--accent);
-      flex-shrink: 0;
-    }
-
-    /* ━━━━━━━━━━━━━━━━━━━━━ PROJECTS ━━━━━━━━━━━━━━━━━━━━━ */
-
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-    }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
 
     .proj-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 30px;
-      display: flex;
-      flex-direction: column;
-      gap: 18px;
-      transition: all .3s;
-      position: relative;
-      overflow: hidden;
+      background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg);
+      padding: 30px; display: flex; flex-direction: column; gap: 18px;
+      transition: all .3s; position: relative; overflow: hidden;
     }
-
     .proj-card::after {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 1px;
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
       background: linear-gradient(90deg, transparent, var(--accent), transparent);
-      opacity: 0;
-      transition: opacity .4s;
+      opacity: 0; transition: opacity .4s;
     }
-
     .proj-card:hover::after { opacity: .4; }
-    .proj-card:hover {
-      border-color: var(--border-hi);
-      transform: translateY(-3px);
-      box-shadow: 0 24px 64px rgba(0,0,0,.4);
-    }
+    .proj-card:hover { border-color: var(--border-hi); transform: translateY(-3px); box-shadow: 0 24px 64px rgba(0,0,0,.4); }
 
-    .proj-head {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-    }
-
-    .proj-num {
-      font-family: var(--mono);
-      font-size: 10px;
-      color: var(--text-dim);
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      margin-bottom: 10px;
-    }
-
-    .proj-card h3 {
-      font-size: 19px;
-      font-weight: 600;
-      letter-spacing: -.025em;
-    }
-
-    .proj-card p {
-      color: var(--text-muted);
-      font-size: 14px;
-      line-height: 1.66;
-    }
-
-    .proj-link {
-      font-size: 16px;
-      color: var(--text-dim);
-      transition: color .2s;
-      flex-shrink: 0;
-    }
-
+    .proj-head { display: flex; justify-content: space-between; align-items: flex-start; }
+    .proj-num { font-family: var(--mono); font-size: 10px; color: var(--text-dim); letter-spacing: .1em; text-transform: uppercase; margin-bottom: 10px; }
+    .proj-card h3 { font-size: 19px; font-weight: 600; letter-spacing: -.025em; }
+    .proj-card p { color: var(--text-muted); font-size: 14px; line-height: 1.66; }
+    .proj-link { font-size: 16px; color: var(--text-dim); transition: color .2s; flex-shrink: 0; }
     .proj-link:hover { color: var(--accent); }
 
-    /* Architecture diagram */
-    .arch-box {
-      background: rgba(0,0,0,.35);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 16px 18px;
-      font-family: var(--mono);
-      font-size: 11px;
-    }
-
-    .arch-row {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      flex-wrap: wrap;
-      margin-bottom: 8px;
-    }
-
+    .arch-box { background: rgba(0,0,0,.35); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 18px; font-family: var(--mono); font-size: 11px; }
+    .arch-row { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin-bottom: 8px; }
     .arch-row:last-child { margin-bottom: 0; }
-
-    .anode {
-      display: inline-block;
-      padding: 3px 9px;
-      border-radius: 5px;
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,.04);
-      color: var(--text-muted);
-      font-size: 10.5px;
-      white-space: nowrap;
-    }
-
-    .anode-hi {
-      border-color: rgba(199,243,107,.28);
-      background: rgba(199,243,107,.07);
-      color: var(--accent);
-    }
-
+    .anode { display: inline-block; padding: 3px 9px; border-radius: 5px; border: 1px solid var(--border); background: rgba(255,255,255,.04); color: var(--text-muted); font-size: 10.5px; white-space: nowrap; }
+    .anode-hi { border-color: rgba(199,243,107,.28); background: rgba(199,243,107,.07); color: var(--accent); }
     .anode-arr { color: var(--text-dim); font-size: 10px; }
 
-    /* Tags */
-    .tag-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-    }
+    .tag-row { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag { padding: 4px 10px; border-radius: 999px; border: 1px solid var(--border); background: rgba(255,255,255,.04); color: var(--text-muted); font-family: var(--mono); font-size: 11px; }
+    .tag-accent { border-color: rgba(199,243,107,.22); background: rgba(199,243,107,.07); color: var(--accent); }
 
-    .tag {
-      padding: 4px 10px;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,.04);
-      color: var(--text-muted);
-      font-family: var(--mono);
-      font-size: 11px;
-    }
+    /* ━━━ SECURITY ━━━ */
 
-    .tag-accent {
-      border-color: rgba(199,243,107,.22);
-      background: rgba(199,243,107,.07);
-      color: var(--accent);
-    }
+    .sec-intro { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; margin-bottom: 52px; padding-bottom: 52px; border-bottom: 1px solid var(--border); }
+    .sec-right p { color: var(--text-muted); font-size: 15px; line-height: 1.72; }
+    .sec-right code { display: inline-block; font-family: var(--mono); font-size: 12px; color: var(--accent); background: var(--accent-dim); padding: 2px 8px; border-radius: 4px; border: 1px solid rgba(199,243,107,.16); }
 
-    /* ━━━━━━━━━━━━━━━━━━━━━ SECURITY ━━━━━━━━━━━━━━━━━━━━━ */
+    .sec-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .sec-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; transition: all .3s; }
+    .sec-card:hover { border-color: rgba(199,243,107,.18); background: rgba(199,243,107,.02); transform: translateY(-2px); }
+    .sec-cat { font-family: var(--mono); font-size: 10px; color: var(--accent); text-transform: uppercase; letter-spacing: .15em; margin-bottom: 9px; }
+    .sec-card h4 { font-size: 15px; font-weight: 600; letter-spacing: -.02em; margin-bottom: 10px; }
+    .sec-card p { font-size: 13.5px; color: var(--text-muted); line-height: 1.65; }
 
-    .sec-intro {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-      align-items: center;
-      margin-bottom: 52px;
-      padding-bottom: 52px;
-      border-bottom: 1px solid var(--border);
-    }
+    /* ━━━ WORKFLOW ━━━ */
 
-    .sec-right p {
-      color: var(--text-muted);
-      font-size: 15px;
-      line-height: 1.72;
-    }
+    .workflow-track { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; position: relative; margin-top: 56px; }
+    .workflow-track::before { content: ''; position: absolute; top: 27px; left: calc(10% + 12px); right: calc(10% + 12px); height: 1px; background: linear-gradient(90deg, var(--accent), rgba(199,243,107,.08)); z-index: 0; }
 
-    .sec-right code {
-      display: inline-block;
-      font-family: var(--mono);
-      font-size: 12px;
-      color: var(--accent);
-      background: var(--accent-dim);
-      padding: 2px 8px;
-      border-radius: 4px;
-      border: 1px solid rgba(199,243,107,.16);
-    }
+    .wf-step { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 0 10px; position: relative; z-index: 1; }
+    .wf-circle { width: 54px; height: 54px; border-radius: 50%; border: 1px solid var(--border); background: var(--bg); display: flex; align-items: center; justify-content: center; font-size: 18px; margin-bottom: 18px; transition: all .3s; }
+    .wf-step:hover .wf-circle { border-color: var(--accent); background: var(--accent-dim); box-shadow: 0 0 22px rgba(199,243,107,.18); }
+    .wf-title { font-size: 12.5px; font-weight: 600; letter-spacing: -.015em; margin-bottom: 6px; }
+    .wf-sub { font-size: 11.5px; color: var(--text-dim); line-height: 1.55; }
 
-    .sec-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-    }
+    .cc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; align-items: center; margin-top: 52px; }
+    .cc-text h3 { font-size: 22px; font-weight: 600; letter-spacing: -.03em; margin-bottom: 14px; }
+    .cc-text p { color: var(--text-muted); font-size: 15px; line-height: 1.72; }
 
-    .sec-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 24px;
-      transition: all .3s;
-    }
-
-    .sec-card:hover {
-      border-color: rgba(199,243,107,.18);
-      background: rgba(199,243,107,.02);
-      transform: translateY(-2px);
-    }
-
-    .sec-cat {
-      font-family: var(--mono);
-      font-size: 10px;
-      color: var(--accent);
-      text-transform: uppercase;
-      letter-spacing: .15em;
-      margin-bottom: 9px;
-    }
-
-    .sec-card h4 {
-      font-size: 15px;
-      font-weight: 600;
-      letter-spacing: -.02em;
-      margin-bottom: 10px;
-    }
-
-    .sec-card p {
-      font-size: 13.5px;
-      color: var(--text-muted);
-      line-height: 1.65;
-    }
-
-    /* ━━━━━━━━━━━━━━━━━━━━━ WORKFLOW ━━━━━━━━━━━━━━━━━━━━━ */
-
-    .workflow-track {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 0;
-      position: relative;
-      margin-top: 56px;
-    }
-
-    .workflow-track::before {
-      content: '';
-      position: absolute;
-      top: 27px;
-      left: calc(10% + 12px);
-      right: calc(10% + 12px);
-      height: 1px;
-      background: linear-gradient(90deg, var(--accent), rgba(199,243,107,.08));
-      z-index: 0;
-    }
-
-    .wf-step {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      padding: 0 10px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .wf-circle {
-      width: 54px; height: 54px;
-      border-radius: 50%;
-      border: 1px solid var(--border);
-      background: var(--bg);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 18px;
-      margin-bottom: 18px;
-      transition: all .3s;
-    }
-
-    .wf-step:hover .wf-circle {
-      border-color: var(--accent);
-      background: var(--accent-dim);
-      box-shadow: 0 0 22px rgba(199,243,107,.18);
-    }
-
-    .wf-title {
-      font-size: 12.5px;
-      font-weight: 600;
-      letter-spacing: -.015em;
-      margin-bottom: 6px;
-    }
-
-    .wf-sub {
-      font-size: 11.5px;
-      color: var(--text-dim);
-      line-height: 1.55;
-    }
-
-    /* Claude Code terminal */
-    .cc-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 36px;
-      align-items: center;
-      margin-top: 52px;
-    }
-
-    .cc-text h3 {
-      font-size: 22px;
-      font-weight: 600;
-      letter-spacing: -.03em;
-      margin-bottom: 14px;
-    }
-
-    .cc-text p {
-      color: var(--text-muted);
-      font-size: 15px;
-      line-height: 1.72;
-    }
-
-    .terminal {
-      background: #080808;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      overflow: hidden;
-    }
-
-    .terminal-bar {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      padding: 10px 14px;
-      border-bottom: 1px solid var(--border);
-      background: rgba(255,255,255,.02);
-    }
-
+    .terminal { background: #080808; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+    .terminal-bar { display: flex; align-items: center; gap: 6px; padding: 10px 14px; border-bottom: 1px solid var(--border); background: rgba(255,255,255,.02); }
     .dot-r { width:10px; height:10px; border-radius:50%; background:#ff5f57; }
     .dot-y { width:10px; height:10px; border-radius:50%; background:#febc2e; }
     .dot-g { width:10px; height:10px; border-radius:50%; background:#28c840; }
-
-    .terminal-body {
-      padding: 18px 20px;
-      font-family: var(--mono);
-      font-size: 12px;
-      line-height: 1.9;
-    }
-
+    .terminal-body { padding: 18px 20px; font-family: var(--mono); font-size: 12px; line-height: 1.9; }
     .tl { display: block; }
     .tl-prompt { color: var(--accent); }
-    .tl-cmd    { color: var(--text); }
     .tl-sys    { color: var(--text-dim); }
     .tl-ok     { color: var(--accent); }
     .tl-out    { color: var(--text-muted); }
-
-    .cursor {
-      display: inline-block;
-      width: 7px; height: 14px;
-      background: var(--accent);
-      vertical-align: middle;
-      animation: blink .9s step-end infinite;
-    }
-
+    .cursor { display: inline-block; width: 7px; height: 14px; background: var(--accent); vertical-align: middle; animation: blink .9s step-end infinite; }
     @keyframes blink { 50% { opacity: 0; } }
 
-    /* ━━━━━━━━━━━━━━━━━━━━━ EXPERIENCE ━━━━━━━━━━━━━━━━━━━━━ */
+    /* ━━━ EXPERIENCE ━━━ */
 
-    .exp-layout {
-      display: grid;
-      grid-template-columns: 260px 1fr;
-      gap: 56px;
-      margin-top: 48px;
-    }
-
-    .exp-sidebar .exp-item {
-      padding: 18px 20px;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      background: var(--bg-card);
-      margin-bottom: 12px;
-      transition: all .25s;
-      cursor: default;
-    }
-
+    .exp-layout { display: grid; grid-template-columns: 260px 1fr; gap: 56px; margin-top: 48px; }
+    .exp-sidebar .exp-item { padding: 18px 20px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--bg-card); margin-bottom: 12px; transition: all .25s; }
     .exp-item:hover { border-color: var(--border-hi); }
-
-    .exp-item.active {
-      border-color: rgba(199,243,107,.22);
-      background: rgba(199,243,107,.03);
-    }
-
-    .exp-co {
-      font-size: 14px;
-      font-weight: 600;
-      margin-bottom: 3px;
-    }
-
+    .exp-item.active { border-color: rgba(199,243,107,.22); background: rgba(199,243,107,.03); }
+    .exp-co { font-size: 14px; font-weight: 600; margin-bottom: 3px; }
     .exp-co.accent { color: var(--accent); }
+    .exp-role-tag { font-family: var(--mono); font-size: 10px; color: var(--text-dim); text-transform: uppercase; letter-spacing: .08em; }
 
-    .exp-role-tag {
-      font-family: var(--mono);
-      font-size: 10px;
-      color: var(--text-dim);
-      text-transform: uppercase;
-      letter-spacing: .08em;
-    }
+    .exp-detail { border: 1px solid var(--border); border-radius: var(--radius-lg); background: var(--bg-card); overflow: hidden; }
+    .exp-detail-header { padding: 28px 32px 24px; border-bottom: 1px solid var(--border); }
+    .exp-detail-header h3 { font-size: 20px; font-weight: 600; letter-spacing: -.03em; margin-bottom: 4px; }
+    .exp-period { font-family: var(--mono); font-size: 11px; color: var(--text-dim); letter-spacing: .06em; }
 
-    .exp-detail {
-      padding: 32px;
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      background: var(--bg-card);
-    }
+    .exp-scale-bar { display: flex; gap: 0; border-bottom: 1px solid var(--border); }
+    .exp-scale-item { flex: 1; padding: 16px 20px; border-right: 1px solid var(--border); }
+    .exp-scale-item:last-child { border-right: none; }
+    .exp-scale-num { font-size: 18px; font-weight: 700; letter-spacing: -.04em; color: #fff; }
+    .exp-scale-label { font-family: var(--mono); font-size: 10px; color: var(--text-dim); text-transform: uppercase; letter-spacing: .08em; margin-top: 2px; }
 
-    .exp-detail h3 {
-      font-size: 21px;
-      font-weight: 600;
-      letter-spacing: -.03em;
-      margin-bottom: 6px;
-    }
-
-    .exp-period {
-      font-family: var(--mono);
-      font-size: 11px;
-      color: var(--text-dim);
-      letter-spacing: .06em;
-      margin-bottom: 20px;
-    }
-
-    .exp-detail > p {
-      color: var(--text-muted);
-      font-size: 15px;
-      line-height: 1.72;
-      margin-bottom: 20px;
-    }
+    .exp-detail-body { padding: 28px 32px; }
+    .exp-detail-body p { color: var(--text-muted); font-size: 15px; line-height: 1.72; margin-bottom: 20px; }
+    .exp-detail-body p strong { color: var(--text); font-weight: 500; }
 
     .bullet-list { list-style: none; display: grid; gap: 10px; }
-
-    .bullet-list li {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      font-size: 14px;
-      color: var(--text-muted);
-      line-height: 1.55;
-    }
-
+    .bullet-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: var(--text-muted); line-height: 1.55; }
     .bullet-list li::before { content: none; }
+    .b-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--accent); flex-shrink: 0; margin-top: 7px; }
 
-    .b-dot {
-      width: 5px; height: 5px;
-      border-radius: 50%;
-      background: var(--accent);
-      flex-shrink: 0;
-      margin-top: 7px;
+    /* ━━━ STACK ━━━ */
+
+    .stack-wrap { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 40px; }
+    .stack-tag { padding: 9px 15px; border-radius: 999px; border: 1px solid var(--border); background: rgba(255,255,255,.03); color: #bbb; font-family: var(--mono); font-size: 12.5px; transition: all .22s; cursor: default; }
+    .stack-tag:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-dim); }
+    .stack-tag.featured { border-color: rgba(199,243,107,.22); color: var(--accent); background: var(--accent-dim); }
+
+    /* ━━━ NEVERHACK ━━━ */
+
+    .nv-section { background: linear-gradient(160deg, rgba(199,243,107,.04) 0%, transparent 50%); }
+
+    /* Neverhack logo recreation */
+    .nh-logo-block {
+      display: flex; align-items: center; gap: 16px;
+      padding: 20px 24px; border: 1px solid rgba(199,243,107,.18);
+      border-radius: var(--radius); background: rgba(199,243,107,.04);
+      margin-bottom: 40px; width: fit-content;
     }
 
-    /* ━━━━━━━━━━━━━━━━━━━━━ STACK ━━━━━━━━━━━━━━━━━━━━━ */
+    .nh-logo-svg { display: flex; align-items: center; gap: 8px; }
 
-    .stack-wrap {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 9px;
-      margin-top: 40px;
+    .nh-logo-text {
+      font-size: 18px; font-weight: 700; letter-spacing: .12em;
+      text-transform: uppercase; color: #fff;
     }
 
-    .stack-tag {
-      padding: 9px 15px;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,.03);
-      color: #bbb;
-      font-family: var(--mono);
-      font-size: 12.5px;
-      transition: all .22s;
-      cursor: default;
+    .nh-logo-sep { width: 1px; height: 28px; background: rgba(199,243,107,.25); }
+
+    .nh-logo-tagline {
+      font-family: var(--mono); font-size: 10px; color: var(--accent);
+      text-transform: uppercase; letter-spacing: .15em; line-height: 1.5;
     }
 
-    .stack-tag:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-      background: var(--accent-dim);
+    .nv-layout { display: grid; grid-template-columns: 1.1fr 1fr; gap: 72px; align-items: start; }
+
+    .nv-statement { font-size: clamp(26px, 3.5vw, 42px); font-weight: 700; letter-spacing: -.04em; line-height: 1.08; }
+    .nv-statement em { font-style: normal; color: var(--accent); }
+
+    .nv-body { color: var(--text-muted); font-size: 16px; line-height: 1.75; margin-top: 20px; }
+
+    /* 3 Pillars alignment */
+    .pillars-grid { display: grid; grid-template-columns: 1fr; gap: 14px; }
+
+    .pillar-card {
+      padding: 20px 22px; border: 1px solid var(--border); border-radius: var(--radius);
+      background: var(--bg-card); transition: all .3s;
     }
+    .pillar-card:hover { border-color: rgba(199,243,107,.2); background: rgba(199,243,107,.02); }
 
-    /* ━━━━━━━━━━━━━━━━━━━━━ NEVERHACK ━━━━━━━━━━━━━━━━━━━━━ */
+    .pillar-head { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+    .pillar-num { font-family: var(--mono); font-size: 10px; color: var(--accent); letter-spacing: .12em; }
+    .pillar-title { font-size: 13px; font-weight: 600; letter-spacing: -.01em; }
+    .pillar-body { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+    .pillar-body strong { color: var(--text); font-weight: 500; }
 
-    .nv-section {
-      background: linear-gradient(135deg, rgba(199,243,107,.04) 0%, transparent 55%);
+    /* ━━━ AUDIT CALLOUT ━━━ */
+
+    .audit-banner {
+      margin-top: 60px; padding: 28px 32px;
+      border: 1px solid rgba(199,243,107,.14);
+      border-radius: var(--radius-lg);
+      background: rgba(199,243,107,.03);
+      display: grid; grid-template-columns: auto 1fr; gap: 20px; align-items: start;
     }
+    .audit-icon { font-family: var(--mono); font-size: 11px; color: var(--accent); letter-spacing: .12em; white-space: nowrap; padding-top: 2px; }
+    .audit-text { font-size: 14px; color: var(--text-muted); line-height: 1.7; }
+    .audit-text strong { color: var(--text); font-weight: 500; }
 
-    .nv-layout {
-      display: grid;
-      grid-template-columns: 1.1fr 1fr;
-      gap: 72px;
-      align-items: center;
-    }
+    /* ━━━ FOOTER ━━━ */
 
-    .nv-statement {
-      font-size: clamp(28px, 3.8vw, 46px);
-      font-weight: 700;
-      letter-spacing: -.04em;
-      line-height: 1.08;
-    }
-
-    .nv-statement em {
-      font-style: normal;
-      color: var(--accent);
-    }
-
-    .nv-body {
-      color: var(--text-muted);
-      font-size: 16.5px;
-      line-height: 1.75;
-      margin-top: 22px;
-    }
-
-    .value-list { list-style: none; display: grid; gap: 16px; }
-
-    .value-list li {
-      display: flex;
-      gap: 14px;
-      font-size: 14.5px;
-      color: var(--text-muted);
-      line-height: 1.6;
-    }
-
-    .value-list li::before { content: none; }
-
-    .v-icon {
-      color: var(--accent);
-      flex-shrink: 0;
-      font-size: 14px;
-      margin-top: 2px;
-    }
-
-    .value-list li strong {
-      color: var(--text);
-      font-weight: 500;
-    }
-
-    /* ━━━━━━━━━━━━━━━━━━━━━ FOOTER ━━━━━━━━━━━━━━━━━━━━━ */
-
-    footer {
-      padding: 56px 0;
-      border-top: 1px solid var(--border);
-      position: relative;
-      z-index: 1;
-    }
-
-    .footer-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 20px;
-    }
-
-    .footer-left p {
-      font-size: 13px;
-      color: var(--text-dim);
-      margin-top: 4px;
-    }
-
-    .footer-links {
-      display: flex;
-      gap: 22px;
-    }
-
-    .footer-links a {
-      font-size: 13px;
-      color: var(--text-muted);
-      transition: color .2s;
-    }
-
+    footer { padding: 56px 0; border-top: 1px solid var(--border); position: relative; z-index: 1; }
+    .footer-row { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+    .footer-left p { font-size: 13px; color: var(--text-dim); margin-top: 4px; }
+    .footer-links { display: flex; gap: 22px; }
+    .footer-links a { font-size: 13px; color: var(--text-muted); transition: color .2s; }
     .footer-links a:hover { color: var(--accent); }
 
-    /* ━━━━━━━━━━━━━━━━━━━━━ REVEAL ━━━━━━━━━━━━━━━━━━━━━ */
+    /* ━━━ REVEAL ━━━ */
 
-    .reveal {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity .65s ease, transform .65s ease;
-    }
-
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity .65s ease, transform .65s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
+    .d1 { transition-delay: .08s; } .d2 { transition-delay: .16s; } .d3 { transition-delay: .24s; }
+    .d4 { transition-delay: .32s; } .d5 { transition-delay: .40s; }
 
-    .d1 { transition-delay: .08s; }
-    .d2 { transition-delay: .16s; }
-    .d3 { transition-delay: .24s; }
-    .d4 { transition-delay: .32s; }
-    .d5 { transition-delay: .40s; }
-
-    /* ━━━━━━━━━━━━━━━━━━━━━ RESPONSIVE ━━━━━━━━━━━━━━━━━━━━━ */
+    /* ━━━ RESPONSIVE ━━━ */
 
     @media (max-width: 900px) {
       .grid-3, .sec-grid, .sec-intro { grid-template-columns: 1fr; }
@@ -1047,9 +436,8 @@
       .workflow-track::before { display: none; }
       .nav-links { display: none; }
       .profile-sticky { position: static; }
-      h1 { letter-spacing: -.04em; }
+      .exp-scale-bar { flex-wrap: wrap; }
     }
-
     @media (max-width: 560px) {
       .workflow-track { grid-template-columns: 1fr; }
       .hero-metrics { flex-direction: column; width: 100%; }
@@ -1071,7 +459,7 @@
         <a href="#security">Security</a>
         <a href="#workflow">Workflow</a>
         <a href="#stack">Stack</a>
-        <a href="mailto:benitezbranco@outlook.com.ar" class="nav-cta">Contact</a>
+        <a href="#neverhack" class="nav-cta">For Neverhack</a>
       </div>
     </nav>
   </div>
@@ -1084,33 +472,33 @@
   <div class="container">
     <div class="eyebrow">
       <span class="eyebrow-line"></span>
-      AI Solutions Architect · Full-Stack · Automation
+      IA Architect · AI-Native Systems · Sovereign Architecture
     </div>
-    <h1>Building <em>AI-native</em><br/>systems that work<br/>at scale.</h1>
+    <h1>Designing AI systems<br/>built for <em>sovereign,</em><br/>defence-grade environments.</h1>
     <p class="hero-sub">
-      From data architecture to enterprise AI workflows — I design and ship modern systems with a focus on secure integration patterns, cloud-native deployment, and measurable business impact.
+      From enterprise data at scale to AI-native automation — I architect modern systems where security, intelligence, and operational rigour are inseparable from the first design decision.
     </p>
     <div class="hero-metrics">
       <div class="metric">
         <span class="metric-num">AI-native</span>
-        <span class="metric-label">Engineering approach</span>
+        <span class="metric-label">Architecture approach</span>
       </div>
       <div class="metric">
-        <span class="metric-num">3+</span>
-        <span class="metric-label">AI systems built</span>
+        <span class="metric-num">450M+</span>
+        <span class="metric-label">Users · Mercado Libre data</span>
       </div>
       <div class="metric">
-        <span class="metric-num">5yr+</span>
-        <span class="metric-label">Data & analytics</span>
+        <span class="metric-num">18</span>
+        <span class="metric-label">Countries · Enterprise scale</span>
       </div>
       <div class="metric">
-        <span class="metric-num">Fullstack</span>
-        <span class="metric-label">Next.js · Vercel · APIs</span>
+        <span class="metric-num">Palma</span>
+        <span class="metric-label">de Mallorca · On-site ready</span>
       </div>
     </div>
     <div class="buttons">
-      <a class="btn btn-primary" href="#projects">View Projects</a>
-      <a class="btn btn-ghost" href="#neverhack">For Neverhack →</a>
+      <a class="btn btn-primary" href="#neverhack">For Neverhack</a>
+      <a class="btn btn-ghost" href="#projects">View Projects ↓</a>
     </div>
   </div>
 </section>
@@ -1122,41 +510,40 @@
 
       <div class="profile-sticky reveal">
         <div class="photo-frame">
-          <!-- Place your photo as branco.jpg next to this HTML file -->
           <img src="branco.jpg" alt="Branco Benitez"
                onerror="this.parentElement.innerHTML='<div class=\'photo-placeholder\'>BRANCO BENITEZ</div>'" />
         </div>
         <div class="status-pill">
           <span class="status-dot"></span>
-          Open · Palma de Mallorca, Spain
+          Available · Palma de Mallorca, Spain
         </div>
       </div>
 
       <div class="profile-text">
         <div class="section-label reveal">Profile</div>
-        <h2 class="section-h reveal">From data systems<br/>to AI architecture.</h2>
+        <h2 class="section-h reveal">Enterprise data foundations.<br/>AI-native engineering future.</h2>
 
         <p class="reveal d1">
-          I started my career in <strong>data analytics, customer experience and geographic intelligence</strong> — working inside data-intensive environments at companies including Mercado Libre and Peroptyx. That foundation built something most developers miss: an intuition for how real data moves through real systems.
+          I built my analytical foundations inside <strong>Mercado Libre</strong> — one of Latin America's most complex data environments, operating at 450M+ users across 18 countries. That experience gave me something rare: an intuition for how <strong>data flows through enterprise-scale production systems</strong>, where it fails, and how to extract operational intelligence from it under pressure.
         </p>
         <p class="reveal d2">
-          Today I build <strong>AI-native platforms</strong>: webhook architectures, automation pipelines, full-stack web systems, and LLM integrations. I don't just use AI to generate code — I think architecturally about how AI components should connect, authenticate, validate, and fail gracefully.
+          Today I architect <strong>AI-native systems</strong>: webhook pipelines, LLM integrations, full-stack platforms, and automation workflows. I think architecturally about how AI components should be isolated, validated, and hardened before they touch production data — the same discipline that Neverhack applies at the defence layer.
         </p>
 
         <div class="transition-block reveal d3">
           <div class="trans-col">
-            <div class="trans-head">Previously</div>
-            <div class="trans-items">Data Analytics · Dashboards<br/>Customer Experience · GIS</div>
+            <div class="trans-head">Enterprise background</div>
+            <div class="trans-items">Mercado Libre · Peroptyx<br/>Data at scale · 18 countries</div>
           </div>
           <div class="trans-arrow-col">→</div>
           <div class="trans-col">
-            <div class="trans-head">Now building</div>
-            <div class="trans-items">AI Architecture · Automation<br/>Full-Stack · Secure APIs</div>
+            <div class="trans-head">Current trajectory</div>
+            <div class="trans-items">AI Architecture · Sovereign Systems<br/>Secure APIs · Cloud-native</div>
           </div>
         </div>
 
         <p class="reveal d4">
-          What I bring to a company like Neverhack is not 15 years of enterprise experience. It is an <strong>architecture-first mindset, rapid learning velocity, and genuine fluency in the AI tooling reshaping how software gets built.</strong>
+          The profile Neverhack describes — someone who can bridge <strong>AI architecture, data governance, and security-aware systems thinking</strong> — is exactly the direction I have been building toward. Not from theory. From real systems, shipped to production.
         </p>
       </div>
 
@@ -1168,12 +555,11 @@
 <section id="projects" style="border-top: 1px solid var(--border); background: rgba(0,0,0,.18);">
   <div class="container">
     <div class="section-label reveal">Selected Work</div>
-    <h2 class="section-h reveal">Systems built. Shipped.<br/>Actually working.</h2>
-    <p class="section-sub reveal">Real projects with deliberate architecture decisions — not tutorials.</p>
+    <h2 class="section-h reveal">Systems built.<br/>Shipped. Working.</h2>
+    <p class="section-sub reveal">Real architecture decisions with real consequences.</p>
 
     <div class="grid-3" style="margin-top: 46px;">
 
-      <!-- Fung -->
       <div class="proj-card reveal d1">
         <div class="proj-head">
           <div>
@@ -1182,8 +568,7 @@
           </div>
           <a class="proj-link" href="https://wearefung.com" target="_blank">↗</a>
         </div>
-        <p>Creative technology studio focused on AI-assisted web experiences, product direction and modern design engineering.</p>
-
+        <p>Creative technology studio built on AI-assisted engineering — Next.js, Vercel Edge, and a production-grade CI/CD pipeline from day one.</p>
         <div class="arch-box">
           <div class="arch-row">
             <span class="anode anode-hi">Next.js</span>
@@ -1200,17 +585,14 @@
             <span class="anode anode-hi">Production</span>
           </div>
         </div>
-
         <div class="tag-row">
           <span class="tag tag-accent">Next.js</span>
           <span class="tag">TypeScript</span>
           <span class="tag">Vercel</span>
           <span class="tag">Framer Motion</span>
-          <span class="tag">AI-assisted</span>
         </div>
       </div>
 
-      <!-- WhatsApp AI -->
       <div class="proj-card reveal d2">
         <div class="proj-head">
           <div>
@@ -1218,8 +600,7 @@
             <h3>WhatsApp AI Assistant</h3>
           </div>
         </div>
-        <p>Conversational automation using webhook architecture, signature validation, AI processing layers and secure API integrations for real business workflows.</p>
-
+        <p>Conversational automation with HMAC webhook validation, AI processing isolation, and secure API chaining — built with a security-first architecture.</p>
         <div class="arch-box">
           <div class="arch-row">
             <span class="anode">WA Cloud API</span>
@@ -1231,22 +612,19 @@
           <div class="arch-row">
             <span class="anode">Auth Layer</span>
             <span class="anode-arr">→</span>
-            <span class="anode anode-hi">LLM</span>
+            <span class="anode anode-hi">LLM Isolated</span>
             <span class="anode-arr">→</span>
-            <span class="anode">Sanitised Response</span>
+            <span class="anode">Safe Response</span>
           </div>
         </div>
-
         <div class="tag-row">
           <span class="tag tag-accent">Webhooks</span>
           <span class="tag">OpenAI API</span>
-          <span class="tag">Node.js</span>
           <span class="tag">HMAC Auth</span>
-          <span class="tag">Cloud deploy</span>
+          <span class="tag">Node.js</span>
         </div>
       </div>
 
-      <!-- Multilingual platform -->
       <div class="proj-card reveal d3">
         <div class="proj-head">
           <div>
@@ -1254,13 +632,12 @@
             <h3>Multilingual AI Platform</h3>
           </div>
         </div>
-        <p>Next.js platform with multilingual routing architecture, SSG optimisation and a modern UI system — built with AI-assisted engineering and shipped to production.</p>
-
+        <p>Next.js platform with i18n routing architecture, SSG optimisation, and full CI/CD pipeline — multilingual, performant, production-deployed.</p>
         <div class="arch-box">
           <div class="arch-row">
             <span class="anode anode-hi">i18n Router</span>
             <span class="anode-arr">→</span>
-            <span class="anode">Locale detect</span>
+            <span class="anode">Locale</span>
             <span class="anode-arr">→</span>
             <span class="anode">SSG Pages</span>
           </div>
@@ -1272,13 +649,11 @@
             <span class="anode anode-hi">Vercel Edge</span>
           </div>
         </div>
-
         <div class="tag-row">
           <span class="tag tag-accent">Next.js i18n</span>
           <span class="tag">TypeScript</span>
           <span class="tag">Tailwind</span>
           <span class="tag">SSG</span>
-          <span class="tag">Performance</span>
         </div>
       </div>
 
@@ -1293,12 +668,12 @@
     <div class="sec-intro">
       <div>
         <div class="section-label reveal">Security & AI Architecture</div>
-        <h2 class="section-h reveal">Engineering with a<br/>security-first mindset.</h2>
-        <p class="section-sub reveal">I don't perform penetration testing. I build systems where security is an architectural property — not a checklist item added at the end.</p>
+        <h2 class="section-h reveal">Security is an<br/>architectural property.</h2>
+        <p class="section-sub reveal">Not a layer added at the end. Every system I design starts with threat surface mapping, data flow isolation, and failure mode analysis — before the first line of code.</p>
       </div>
       <div class="sec-right reveal d2">
         <p>
-          Modern AI systems introduce new threat surfaces: <code>prompt injection</code>, <code>insecure API chaining</code>, <code>unvalidated webhook payloads</code>, and <code>exposed model outputs</code>. I approach these as architecture problems from the first design decision — not as security audits after the fact.
+          Modern AI systems introduce novel attack surfaces: <code>prompt injection</code>, <code>insecure API chaining</code>, <code>unvalidated webhook payloads</code>, <code>data exfiltration through LLM outputs</code>, and <code>log poisoning</code>. These aren't security team problems — they're architecture problems. I treat them as such from day one.
         </p>
       </div>
     </div>
@@ -1306,39 +681,39 @@
     <div class="sec-grid">
 
       <div class="sec-card reveal d1">
-        <div class="sec-cat">API Security</div>
-        <h4>Secure API Architecture</h4>
-        <p>Designing API layers with authentication, rate limiting, and input validation as structural requirements. Webhook signature verification with HMAC-SHA256, token scoping, and deliberate request lifecycle management.</p>
+        <div class="sec-cat">SIEM & Observability</div>
+        <h4>Splunk Enterprise & Log Architecture</h4>
+        <p>Designing structured log pipelines for Splunk ingestion — field extraction, index architecture, and search-time knowledge objects. Understanding how log quality at the source determines detection capability downstream in a SOC environment.</p>
       </div>
 
       <div class="sec-card reveal d2">
         <div class="sec-cat">AI Systems</div>
         <h4>AI Workflow Isolation</h4>
-        <p>Isolating AI model calls from production data flows, sanitising inputs before LLM processing, and validating outputs before surfacing to users. Awareness of prompt injection patterns and output manipulation risks.</p>
+        <p>Isolating LLM model calls from production data flows, sanitising inputs before processing, and validating outputs before surfacing. Prompt injection awareness and defence-in-depth thinking applied to AI pipeline architecture.</p>
       </div>
 
       <div class="sec-card reveal d3">
-        <div class="sec-cat">Infrastructure</div>
-        <h4>Secure Deployment Practices</h4>
-        <p>Environment variable management, secret separation across environments, protected CI/CD pipelines, and Vercel configurations with access-controlled previews. Secrets never hardcoded, never logged.</p>
+        <div class="sec-cat">API Security</div>
+        <h4>Secure API Architecture</h4>
+        <p>API layers with authentication, rate limiting, and input validation as structural requirements. Webhook signature verification with HMAC-SHA256, token scoping, and deliberate request lifecycle management with audit trails.</p>
       </div>
 
       <div class="sec-card reveal d1">
         <div class="sec-cat">Authentication</div>
         <h4>Authentication Layer Design</h4>
-        <p>Architecting token-based authentication flows, HMAC webhook validation, session management patterns, and designing for authentication failure modes — including graceful degradation and anomaly detection hooks.</p>
+        <p>Token-based authentication flows, HMAC webhook validation, session architecture, and designing for authentication failure modes — including graceful degradation, anomaly detection hooks, and zero-trust access patterns.</p>
       </div>
 
       <div class="sec-card reveal d2">
         <div class="sec-cat">Data Flow</div>
         <h4>Data Flow Protection</h4>
-        <p>Mapping data flows from input to output to identify exposure points. Understanding where sensitive data must be masked, encrypted, or excluded from AI pipelines — and designing logging systems that never leak PII.</p>
+        <p>Mapping data flows end-to-end to identify exposure points. Designing pipelines where sensitive data is masked, encrypted, or excluded at the architecture level — not patched in later. Critical in environments with <strong>zero-retention</strong> requirements.</p>
       </div>
 
       <div class="sec-card reveal d3">
-        <div class="sec-cat">Cloud Architecture</div>
-        <h4>Cloud-native Infrastructure Thinking</h4>
-        <p>Designing stateless, horizontally scalable architectures that reduce the attack surface by design. Understanding how infrastructure decisions — from region selection to serverless patterns — affect both availability and security posture.</p>
+        <div class="sec-cat">Infrastructure</div>
+        <h4>Secure Deployment Practices</h4>
+        <p>Environment isolation, secret management, protected CI/CD pipelines, and infrastructure-as-code thinking. Every secret scoped, rotated, and never logged. Deployment architectures designed for rollback, auditability, and minimal blast radius.</p>
       </div>
 
     </div>
@@ -1349,41 +724,35 @@
 <section id="workflow" style="border-top: 1px solid var(--border); background: rgba(0,0,0,.18);">
   <div class="container">
     <div class="section-label reveal">AI Engineering Workflow</div>
-    <h2 class="section-h reveal">How I build with AI.</h2>
-    <p class="section-sub reveal">Not prompt-and-pray. A disciplined, architecture-first process where AI is a force multiplier — with human judgement at every critical gate.</p>
+    <h2 class="section-h reveal">Architecture-first.<br/>AI-augmented. Human-reviewed.</h2>
+    <p class="section-sub reveal">The same discipline that defines defence-grade engineering — verify before trust, isolate before integrate, review before deploy.</p>
 
     <div class="workflow-track">
-
       <div class="wf-step reveal d1">
         <div class="wf-circle">◎</div>
         <div class="wf-title">Architecture First</div>
-        <div class="wf-sub">Define system boundaries, data flows, and security assumptions before any code is written</div>
+        <div class="wf-sub">System boundaries, data flows, threat surface — defined before any code</div>
       </div>
-
       <div class="wf-step reveal d2">
         <div class="wf-circle">⬡</div>
         <div class="wf-title">AI-Augmented Build</div>
-        <div class="wf-sub">Claude Code for scaffolding and rapid iteration — always with deliberate human review gates</div>
+        <div class="wf-sub">Claude Code for scaffolding and iteration — with explicit human review gates</div>
       </div>
-
       <div class="wf-step reveal d3">
         <div class="wf-circle">⊕</div>
-        <div class="wf-title">Review & Harden</div>
-        <div class="wf-sub">Human review of all AI-generated output. Security checks, edge cases, and performance analysis</div>
+        <div class="wf-title">Security Review</div>
+        <div class="wf-sub">Every AI-generated output reviewed. Edge cases, injection vectors, and data paths validated</div>
       </div>
-
       <div class="wf-step reveal d4">
         <div class="wf-circle">↑</div>
         <div class="wf-title">CI/CD Deploy</div>
-        <div class="wf-sub">GitHub → automated pipeline → protected preview → production with rollback</div>
+        <div class="wf-sub">GitHub → protected pipeline → preview → production with full rollback capability</div>
       </div>
-
       <div class="wf-step reveal d5">
         <div class="wf-circle">◈</div>
-        <div class="wf-title">Observe & Iterate</div>
-        <div class="wf-sub">Instrument, observe, and refine. Deployed systems are products — not finished artefacts</div>
+        <div class="wf-title">Observe & Harden</div>
+        <div class="wf-sub">Instrument, log, detect anomalies. Deployed systems are living — not finished</div>
       </div>
-
     </div>
 
     <div class="cc-grid">
@@ -1391,28 +760,26 @@
         <div class="section-label" style="margin-bottom: 14px;">Claude Code</div>
         <h3>I build with Claude Code every day.</h3>
         <p>
-          Claude Code is not autocomplete. It is an agentic engineering partner I use for architecture reasoning, refactoring, security review, and rapid prototyping. The discipline is in knowing when to trust the output — and when to override it.
+          Not as a shortcut — as a structured engineering partner. Architecture reasoning, security review, refactoring, and rapid prototyping. The discipline is knowing when to trust the output, when to override it, and when the AI is introducing risk you need to catch.
         </p>
-        <p style="margin-top: 14px;">
-          This portfolio was engineered with Claude Code. The workflow you see on this page is the workflow I actually use.
+        <p style="margin-top: 14px; color: var(--text-muted); font-size: 15px;">
+          This portfolio was engineered with Claude Code. The workflow above is the workflow I actually use — including the security review step.
         </p>
       </div>
       <div class="reveal d2">
         <div class="terminal">
           <div class="terminal-bar">
-            <span class="dot-r"></span>
-            <span class="dot-y"></span>
-            <span class="dot-g"></span>
+            <span class="dot-r"></span><span class="dot-y"></span><span class="dot-g"></span>
           </div>
           <div class="terminal-body">
-            <span class="tl"><span class="tl-prompt">$</span> <span class="tl-cmd">claude "design webhook validation layer for WhatsApp API"</span></span>
-            <span class="tl tl-sys">▸ Analysing threat surface...</span>
-            <span class="tl tl-sys">▸ Proposing HMAC-SHA256 signature check...</span>
-            <span class="tl tl-sys">▸ Adding rate-limit middleware...</span>
-            <span class="tl tl-sys">▸ Generating typed request schema...</span>
-            <span class="tl"><span class="tl-ok">✓</span> <span class="tl-out">Architecture reviewed · edge cases handled</span></span>
-            <span class="tl"><span class="tl-ok">✓</span> <span class="tl-out">Secrets isolated to environment layer</span></span>
-            <span class="tl"><span class="tl-ok">✓</span> <span class="tl-out">Deployed to production</span></span>
+            <span class="tl"><span class="tl-prompt">$</span> claude "architect secure AI pipeline for enterprise data ingestion"</span>
+            <span class="tl tl-sys">▸ Mapping data flow & threat surface...</span>
+            <span class="tl tl-sys">▸ Proposing isolation boundaries...</span>
+            <span class="tl tl-sys">▸ HMAC validation layer added...</span>
+            <span class="tl tl-sys">▸ Splunk log schema defined...</span>
+            <span class="tl tl-sys">▸ Zero-retention paths confirmed...</span>
+            <span class="tl"><span class="tl-ok">✓</span> <span class="tl-out">Architecture reviewed · security hardened</span></span>
+            <span class="tl"><span class="tl-ok">✓</span> <span class="tl-out">Deployed · audit trail active</span></span>
             <span class="tl"><span class="tl-prompt">$</span> <span class="cursor"></span></span>
           </div>
         </div>
@@ -1426,40 +793,65 @@
 <section id="experience" style="border-top: 1px solid var(--border);">
   <div class="container">
     <div class="section-label reveal">Experience</div>
-    <h2 class="section-h reveal">Where the analytical<br/>foundations were built.</h2>
+    <h2 class="section-h reveal">Enterprise-scale analytical<br/>foundations. Real environments.</h2>
 
     <div class="exp-layout">
       <div class="exp-sidebar reveal">
-        <div class="exp-item">
-          <div class="exp-co">Mercado Libre</div>
-          <div class="exp-role-tag">Data · Customer Experience</div>
+        <div class="exp-item active">
+          <div class="exp-co" style="color: #fff;">Mercado Libre</div>
+          <div class="exp-role-tag">Data Intelligence · Enterprise Scale</div>
         </div>
         <div class="exp-item">
           <div class="exp-co">Peroptyx</div>
           <div class="exp-role-tag">Geographic Data · Map Intelligence</div>
         </div>
-        <div class="exp-item active">
+        <div class="exp-item" style="border-color: rgba(199,243,107,.22); background: rgba(199,243,107,.02);">
           <div class="exp-co accent">Fung Studio</div>
           <div class="exp-role-tag">AI Engineering · Founder</div>
         </div>
       </div>
 
       <div class="exp-detail reveal d2">
-        <h3>Data Analyst · Customer Experience · Geographic Intelligence</h3>
-        <div class="exp-period">Mercado Libre · Peroptyx · 2020 – 2024</div>
-        <p>
-          Built analytical foundations across some of Latin America's most data-intensive environments. Delivered dashboards, customer behaviour analysis and geographic intelligence that drove operational decisions at scale.
-        </p>
-        <p>
-          This experience gave me something most AI engineers lack: a deep intuition for <strong>how real data moves through production systems</strong>, where it breaks, and how to communicate technical findings to non-technical decision-makers.
-        </p>
-        <ul class="bullet-list">
-          <li><span class="b-dot"></span>Dashboard creation and executive reporting for operational teams</li>
-          <li><span class="b-dot"></span>Customer behaviour analysis and experience metrics at scale</li>
-          <li><span class="b-dot"></span>Geographic data interpretation and spatial intelligence workflows</li>
-          <li><span class="b-dot"></span>Workflow optimisation and process automation projects</li>
-          <li><span class="b-dot"></span>Stakeholder communication across engineering and business domains</li>
-        </ul>
+        <div class="exp-detail-header">
+          <h3>Data Analyst · Customer Intelligence · Geographic Data</h3>
+          <div class="exp-period">Mercado Libre · Peroptyx · 2020 – 2024</div>
+        </div>
+
+        <div class="exp-scale-bar">
+          <div class="exp-scale-item">
+            <div class="exp-scale-num">450M+</div>
+            <div class="exp-scale-label">Registered users</div>
+          </div>
+          <div class="exp-scale-item">
+            <div class="exp-scale-num">18</div>
+            <div class="exp-scale-label">Countries</div>
+          </div>
+          <div class="exp-scale-item">
+            <div class="exp-scale-num">Top 5</div>
+            <div class="exp-scale-label">Tech co. in LATAM</div>
+          </div>
+          <div class="exp-scale-item">
+            <div class="exp-scale-num">FAANG-tier</div>
+            <div class="exp-scale-label">Data complexity</div>
+          </div>
+        </div>
+
+        <div class="exp-detail-body">
+          <p>
+            Mercado Libre is not a regional startup — it is <strong>one of the most complex data environments in the Americas</strong>, processing hundreds of millions of transactions, user events, and fraud signals in real time across 18 countries. Working inside this environment shaped how I think about data at scale: not as rows in a dashboard, but as an operational intelligence layer that drives decisions under pressure.
+          </p>
+          <p>
+            At Peroptyx, I worked on <strong>geographic data intelligence</strong> — interpreting map data, spatial analysis, and location-based data quality at scale. This type of data work — precise, structured, consequence-bearing — directly informs how I approach data governance in AI systems.
+          </p>
+          <ul class="bullet-list">
+            <li><span class="b-dot"></span>Real-time dashboards and executive reporting for operational decisions at enterprise scale</li>
+            <li><span class="b-dot"></span>Customer behaviour analysis, experience metrics, and fraud-pattern signal interpretation</li>
+            <li><span class="b-dot"></span>Geographic data intelligence, spatial analysis, and multi-country data quality workflows</li>
+            <li><span class="b-dot"></span>Cross-functional data communication across engineering, product, and business stakeholders</li>
+            <li><span class="b-dot"></span>Workflow automation and process optimisation for high-volume operational pipelines</li>
+            <li><span class="b-dot"></span>Structured data analysis in environments where accuracy and auditability are non-negotiable</li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
@@ -1470,9 +862,11 @@
   <div class="container">
     <div class="section-label reveal">Stack & Tools</div>
     <h2 class="section-h reveal">What I build with.</h2>
-    <p class="section-sub reveal">Tools I use in production — not a wishlist. Actually shipped.</p>
+    <p class="section-sub reveal">Production tools — not a wishlist. Every item here has been used in a shipped system.</p>
 
     <div class="stack-wrap">
+      <span class="stack-tag featured reveal">Splunk Enterprise</span>
+      <span class="stack-tag featured reveal">Claude Code</span>
       <span class="stack-tag reveal">Next.js</span>
       <span class="stack-tag reveal">React</span>
       <span class="stack-tag reveal">TypeScript</span>
@@ -1481,18 +875,19 @@
       <span class="stack-tag reveal">Node.js</span>
       <span class="stack-tag reveal">Vercel</span>
       <span class="stack-tag reveal">GitHub</span>
-      <span class="stack-tag reveal">Claude Code</span>
       <span class="stack-tag reveal">OpenAI APIs</span>
       <span class="stack-tag reveal">WhatsApp Cloud API</span>
       <span class="stack-tag reveal">Webhook Architecture</span>
-      <span class="stack-tag reveal">REST APIs</span>
       <span class="stack-tag reveal">HMAC Validation</span>
-      <span class="stack-tag reveal">Env Variable Mgmt</span>
+      <span class="stack-tag reveal">REST APIs</span>
+      <span class="stack-tag reveal">Log Architecture</span>
+      <span class="stack-tag reveal">SIEM Concepts</span>
       <span class="stack-tag reveal">CI/CD Pipelines</span>
       <span class="stack-tag reveal">SQL</span>
       <span class="stack-tag reveal">Power BI</span>
       <span class="stack-tag reveal">Tableau</span>
       <span class="stack-tag reveal">AI Workflow Design</span>
+      <span class="stack-tag reveal">Env Variable Mgmt</span>
     </div>
   </div>
 </section>
@@ -1500,50 +895,80 @@
 <!-- ━━ FOR NEVERHACK ━━ -->
 <section id="neverhack" class="nv-section" style="border-top: 1px solid var(--border);">
   <div class="container">
-    <div class="section-label reveal">For Neverhack</div>
+
+    <!-- Neverhack logo recreation -->
+    <div class="nh-logo-block reveal">
+      <div class="nh-logo-svg">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="22" height="22" rx="4" fill="rgba(199,243,107,0.12)" stroke="rgba(199,243,107,0.3)" stroke-width="1"/>
+          <path d="M5 16V6L11 14V6M11 14V6L17 16" stroke="#c7f36b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="nh-logo-text">NEVERHACK</span>
+      </div>
+      <div class="nh-logo-sep"></div>
+      <div class="nh-logo-tagline">Sovereign cybersecurity<br/>Defence-grade expertise</div>
+    </div>
 
     <div class="nv-layout">
       <div class="reveal">
+        <div class="section-label" style="margin-bottom: 16px;">Why I'm applying</div>
         <div class="nv-statement">
-          The next generation of cyber defence is<br/><em>AI-native</em> by architecture.
+          Sovereign AI. Defence-grade<br/>execution. <em>This is exactly<br/>where I want to build.</em>
         </div>
         <p class="nv-body">
-          What Neverhack is building — defence-grade AI at enterprise scale — is exactly the kind of environment where architecture thinking, domain-crossing fluency, and genuine AI engineering ability matter more than a rigid specialty.
+          NEVERHACK's three pillars — Sovereign Architecture, AI-Native Operations, and Defence-Grade Expertise — are not abstract to me. They map directly to the way I already think about systems: isolation-first, AI as a structured layer, and analytical rigour inherited from operating inside one of the most complex data environments in Latin America.
         </p>
         <p class="nv-body">
-          I am not arriving as a finished product. I am a highly adaptive builder with a strong analytical foundation, real shipped AI systems, and the intellectual curiosity to grow fast inside a technical team working at the intersection of AI and security.
+          I understand what PROMETHEUS represents: AI orchestration at machine speed, operating on sovereign infrastructure with zero data exfiltration. That is the kind of architecture I want to be part of designing and scaling — not as an observer, but as a builder.
         </p>
-        <div class="buttons" style="margin-top: 32px;">
-          <a class="btn btn-primary" href="mailto:benitezbranco@outlook.com.ar">Let's talk</a>
+        <p class="nv-body" style="font-size: 14px; color: var(--text-dim);">
+          I am based in Palma de Mallorca. On-site from day one.
+        </p>
+        <div class="buttons" style="margin-top: 28px;">
+          <a class="btn btn-primary" href="mailto:benitezbranco@outlook.com.ar">Contact me directly</a>
           <a class="btn btn-ghost" href="https://www.linkedin.com/in/branco-benitez-1023b6191/" target="_blank">LinkedIn ↗</a>
         </div>
       </div>
 
-      <div class="reveal d2">
-        <ul class="value-list">
-          <li>
-            <span class="v-icon">◎</span>
-            <span><strong>Architecture-first thinking</strong> — I start with system design, data flows, and failure modes. Syntax is the last step.</span>
-          </li>
-          <li>
-            <span class="v-icon">◎</span>
-            <span><strong>Genuinely AI-native</strong> — I don't treat AI as a shortcut. I integrate it as a structured engineering layer with explicit validation and human oversight.</span>
-          </li>
-          <li>
-            <span class="v-icon">◎</span>
-            <span><strong>Rapid learning velocity</strong> — From dashboards to full-stack AI systems in under two years. I learn domains by building real things inside them.</span>
-          </li>
-          <li>
-            <span class="v-icon">◎</span>
-            <span><strong>Security-conscious development</strong> — API authentication, webhook validation, data flow isolation, and prompt injection awareness built into every project from day one.</span>
-          </li>
-          <li>
-            <span class="v-icon">◎</span>
-            <span><strong>Builder mindset</strong> — I ship. Technical decisions serve real outcomes, not elegant theory. Products exist when users use them.</span>
-          </li>
-        </ul>
+      <!-- 3 Pillars alignment -->
+      <div class="pillars-grid reveal d2">
+        <div class="pillar-card">
+          <div class="pillar-head">
+            <span class="pillar-num">PILLAR 01</span>
+            <span class="pillar-title">Sovereign Architecture</span>
+          </div>
+          <div class="pillar-body">
+            I design systems with <strong>data isolation as a structural requirement</strong> — not a configuration option. Zero-retention paths, scoped secrets, and environment separation are defaults in every project I build. The principle of need-to-know is not a compliance checklist to me — it's an architectural decision I make at the design stage.
+          </div>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-head">
+            <span class="pillar-num">PILLAR 02</span>
+            <span class="pillar-title">AI-Native Operations</span>
+          </div>
+          <div class="pillar-body">
+            I build with AI as a structured engineering layer: <strong>architecture-first prompting, output validation, and human oversight at every critical gate</strong>. I understand the risks of unvalidated LLM outputs in operational systems — and I design around them. The same isolation discipline that PROMETHEUS requires at detection speed.
+          </div>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-head">
+            <span class="pillar-num">PILLAR 03</span>
+            <span class="pillar-title">Defence-Grade Expertise</span>
+          </div>
+          <div class="pillar-body">
+            I carry analytical rigour from <strong>enterprise-scale data environments</strong> where inaccuracy has real operational consequences. That discipline — precision, auditability, and systematic verification — is the same foundation that defence-grade security work demands. I am not arriving with the experience. I am arriving with the mindset.
+          </div>
+        </div>
       </div>
     </div>
+
+    <div class="audit-banner reveal">
+      <span class="audit-icon">// AUDIT NOTE</span>
+      <div class="audit-text">
+        This portfolio was built specifically for Neverhack after a deep analysis of your three core pillars, the PROMETHEUS platform narrative, and the IA Architect role requirements. <strong>The security section reflects real architectural practices I apply in my current projects</strong> — not a curated list of keywords. The Splunk Enterprise knowledge, AI workflow isolation patterns, and zero-retention design thinking are genuine competencies I am actively developing and applying as I move toward enterprise AI architecture. This is not a generic application. It is a deliberate one.
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -1553,7 +978,7 @@
     <div class="footer-row">
       <div class="footer-left">
         <div class="logo">BRANCO <span class="logo-accent">BENITEZ</span></div>
-        <p>AI Solutions Architect · Palma de Mallorca, Spain</p>
+        <p>AI Architect · Palma de Mallorca, Spain</p>
       </div>
       <div class="footer-links">
         <a href="mailto:benitezbranco@outlook.com.ar">benitezbranco@outlook.com.ar</a>
@@ -1565,25 +990,18 @@
 </footer>
 
 <script>
-  // Sticky header
   const hdr = document.getElementById('site-header');
   window.addEventListener('scroll', () => {
     hdr.classList.toggle('scrolled', window.scrollY > 40);
   }, { passive: true });
 
-  // Scroll reveal
   const io = new IntersectionObserver((entries) => {
     entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
-        io.unobserve(e.target);
-      }
+      if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
     });
   }, { threshold: 0.08, rootMargin: '0px 0px -50px 0px' });
-
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-  // Mouse-tracked glow on cards
   document.querySelectorAll('.card, .proj-card, .sec-card').forEach(card => {
     card.addEventListener('mousemove', e => {
       const r = card.getBoundingClientRect();
