@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es" data-lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Branco Benitez — AI Architect · For Neverhack</title>
+  <title>Branco Benitez — AI Automation & Integration Engineer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -11,21 +11,21 @@
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
     :root {
-      --accent:      #c7f36b;
-      --accent-dim:  rgba(199,243,107,.10);
-      --accent-glow: rgba(199,243,107,.22);
-      --bg:          #050505;
-      --bg-raised:   #0c0c0c;
-      --bg-card:     rgba(255,255,255,.03);
-      --border:      rgba(255,255,255,.07);
-      --border-hi:   rgba(255,255,255,.13);
-      --text:        #efefef;
-      --text-muted:  #888;
-      --text-dim:    #444;
-      --radius:      14px;
-      --radius-lg:   22px;
-      --font:        'Inter', -apple-system, sans-serif;
-      --mono:        'JetBrains Mono', 'Fira Code', monospace;
+      --accent:     #c7f36b;
+      --accent-dim: rgba(199,243,107,.10);
+      --accent-glo: rgba(199,243,107,.22);
+      --bg:         #050505;
+      --bg-raised:  #0c0c0c;
+      --bg-card:    rgba(255,255,255,.03);
+      --border:     rgba(255,255,255,.07);
+      --border-hi:  rgba(255,255,255,.13);
+      --text:       #efefef;
+      --muted:      #888;
+      --dim:        #444;
+      --radius:     14px;
+      --radius-lg:  22px;
+      --font:       'Inter', -apple-system, sans-serif;
+      --mono:       'JetBrains Mono', 'Fira Code', monospace;
     }
 
     html { scroll-behavior: smooth; }
@@ -41,470 +41,385 @@
 
     body::before {
       content: '';
-      position: fixed;
-      inset: 0;
+      position: fixed; inset: 0;
       background-image: radial-gradient(circle, rgba(255,255,255,.03) 1px, transparent 1px);
       background-size: 44px 44px;
-      pointer-events: none;
-      z-index: 0;
+      pointer-events: none; z-index: 0;
     }
 
     a { color: inherit; text-decoration: none; }
 
-    .container {
-      width: min(1100px, 90%);
-      margin: auto;
-      position: relative;
-      z-index: 1;
-    }
+    .container { width: min(1100px, 90%); margin: auto; position: relative; z-index: 1; }
 
     /* ━━━ HEADER ━━━ */
 
     header {
-      position: fixed;
-      inset: 0 0 auto 0;
-      z-index: 200;
-      padding: 18px 0;
+      position: fixed; inset: 0 0 auto 0;
+      z-index: 200; padding: 18px 0;
       transition: background .35s, border-color .35s;
     }
-
     header.scrolled {
       background: rgba(5,5,5,.9);
-      backdrop-filter: blur(24px);
-      -webkit-backdrop-filter: blur(24px);
+      backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
       border-bottom: 1px solid var(--border);
     }
-
     nav { display: flex; justify-content: space-between; align-items: center; }
-
-    .logo { font-size: 12px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: #fff; }
+    .logo { font-size: 12px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; }
     .logo-accent { color: var(--accent); }
-
-    .nav-links { display: flex; gap: 28px; align-items: center; }
-    .nav-links a { font-size: 13px; color: var(--text-muted); transition: color .2s; }
+    .nav-right { display: flex; gap: 24px; align-items: center; }
+    .nav-links { display: flex; gap: 24px; align-items: center; }
+    .nav-links a { font-size: 13px; color: var(--muted); transition: color .2s; }
     .nav-links a:hover { color: var(--text); }
+
+    /* Language toggle */
+    .lang-toggle {
+      display: flex; align-items: center; gap: 0;
+      border: 1px solid var(--border); border-radius: 999px;
+      overflow: hidden; font-size: 12px; font-family: var(--mono);
+    }
+    .lang-btn {
+      padding: 6px 12px; cursor: pointer; transition: all .2s;
+      color: var(--muted); background: transparent; border: none;
+    }
+    .lang-btn.active { background: var(--accent); color: #050505; font-weight: 600; }
+    .lang-btn:not(.active):hover { color: var(--text); }
 
     .nav-cta {
       padding: 8px 18px; border-radius: 999px;
-      border: 1px solid var(--border-hi) !important;
-      color: var(--text) !important;
-      transition: border-color .25s, background .25s !important;
+      border: 1px solid var(--border-hi); color: var(--text);
+      font-size: 13px; transition: all .2s;
     }
-    .nav-cta:hover { border-color: var(--accent) !important; background: var(--accent-dim) !important; }
+    .nav-cta:hover { border-color: var(--accent); background: var(--accent-dim); }
 
     /* ━━━ HERO ━━━ */
 
     .hero {
-      min-height: 100vh;
-      display: grid;
-      align-items: center;
-      padding: 130px 0 90px;
-      position: relative;
-      overflow: hidden;
+      min-height: 100vh; display: grid; align-items: center;
+      padding: 130px 0 90px; position: relative; overflow: hidden;
     }
-
-    .hero-orb {
+    .orb {
       position: absolute; border-radius: 50%;
       pointer-events: none; filter: blur(120px);
     }
-
-    .orb-1 {
-      width: 700px; height: 700px;
-      background: rgba(199,243,107,.055);
-      top: -15%; right: -8%;
-      animation: breathe 14s ease-in-out infinite;
-    }
-
-    .orb-2 {
-      width: 500px; height: 500px;
-      background: rgba(80,120,255,.032);
-      bottom: 5%; left: -10%;
-      animation: breathe 18s ease-in-out infinite reverse;
-    }
-
-    @keyframes breathe {
-      0%,100% { transform: scale(1) translateY(0); }
-      50%      { transform: scale(1.07) translateY(-24px); }
-    }
+    .orb-1 { width:700px; height:700px; background:rgba(199,243,107,.055); top:-15%; right:-8%; animation:breathe 14s ease-in-out infinite; }
+    .orb-2 { width:500px; height:500px; background:rgba(80,120,255,.032); bottom:5%; left:-10%; animation:breathe 18s ease-in-out infinite reverse; }
+    @keyframes breathe { 0%,100%{transform:scale(1) translateY(0)} 50%{transform:scale(1.07) translateY(-24px)} }
 
     .eyebrow {
       display: inline-flex; align-items: center; gap: 10px;
       font-family: var(--mono); font-size: 11px; color: var(--accent);
-      text-transform: uppercase; letter-spacing: .18em; margin-bottom: 34px;
+      text-transform: uppercase; letter-spacing: .18em; margin-bottom: 32px;
     }
-    .eyebrow-line { display: block; width: 28px; height: 1px; background: var(--accent); }
+    .eyebrow::before { content:''; display:block; width:28px; height:1px; background:var(--accent); }
 
-    h1 {
-      font-size: clamp(44px, 7.5vw, 88px);
-      line-height: .94; letter-spacing: -.05em; font-weight: 700; max-width: 880px;
-    }
-    h1 em { font-style: normal; color: var(--accent); }
+    h1 { font-size: clamp(42px,7vw,84px); line-height:.94; letter-spacing:-.05em; font-weight:700; max-width:860px; }
+    h1 em { font-style:normal; color:var(--accent); }
 
-    .hero-sub {
-      margin-top: 30px; max-width: 580px;
-      color: var(--text-muted); font-size: 18px; line-height: 1.72;
-    }
+    .hero-sub { margin-top:28px; max-width:580px; color:var(--muted); font-size:18px; line-height:1.72; }
 
     .hero-metrics {
-      display: flex; align-items: stretch; gap: 0; margin-top: 48px;
-      border: 1px solid var(--border); border-radius: var(--radius);
-      overflow: hidden; width: fit-content; background: var(--bg-card);
+      display:flex; align-items:stretch; margin-top:44px;
+      border:1px solid var(--border); border-radius:var(--radius);
+      overflow:hidden; width:fit-content; background:var(--bg-card);
     }
+    .metric { padding:16px 26px; display:flex; flex-direction:column; gap:4px; border-right:1px solid var(--border); }
+    .metric:last-child { border-right:none; }
+    .metric-num { font-size:19px; font-weight:700; letter-spacing:-.04em; color:#fff; }
+    .metric-label { font-family:var(--mono); font-size:10px; color:var(--dim); text-transform:uppercase; letter-spacing:.1em; }
 
-    .metric { padding: 18px 28px; display: flex; flex-direction: column; gap: 4px; border-right: 1px solid var(--border); }
-    .metric:last-child { border-right: none; }
-    .metric-num { font-size: 20px; font-weight: 700; letter-spacing: -.04em; color: #fff; }
-    .metric-label { font-family: var(--mono); font-size: 10px; color: var(--text-dim); text-transform: uppercase; letter-spacing: .1em; }
-
-    .buttons { display: flex; gap: 12px; margin-top: 36px; flex-wrap: wrap; }
-
-    .btn {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 13px 24px; border-radius: 999px;
-      font-size: 14px; font-weight: 500; transition: all .25s;
-    }
-
-    .btn-primary { background: var(--accent); color: #060606; font-weight: 600; border: none; }
-    .btn-primary:hover { background: #d4fb80; transform: translateY(-1px); box-shadow: 0 8px 28px rgba(199,243,107,.28); }
-
-    .btn-ghost { border: 1px solid var(--border-hi); color: var(--text-muted); }
-    .btn-ghost:hover { border-color: rgba(255,255,255,.22); color: var(--text); background: rgba(255,255,255,.04); }
+    .buttons { display:flex; gap:12px; margin-top:34px; flex-wrap:wrap; }
+    .btn { display:inline-flex; align-items:center; gap:8px; padding:13px 24px; border-radius:999px; font-size:14px; font-weight:500; transition:all .25s; }
+    .btn-primary { background:var(--accent); color:#060606; font-weight:600; border:none; }
+    .btn-primary:hover { background:#d4fb80; transform:translateY(-1px); box-shadow:0 8px 28px rgba(199,243,107,.28); }
+    .btn-ghost { border:1px solid var(--border-hi); color:var(--muted); }
+    .btn-ghost:hover { border-color:rgba(255,255,255,.22); color:var(--text); background:rgba(255,255,255,.04); }
 
     /* ━━━ SECTIONS ━━━ */
 
-    section { padding: 100px 0; position: relative; z-index: 1; }
+    section { padding:96px 0; position:relative; z-index:1; }
 
     .section-label {
-      display: inline-flex; align-items: center; gap: 10px;
-      font-family: var(--mono); font-size: 10px; color: var(--accent);
-      text-transform: uppercase; letter-spacing: .2em; margin-bottom: 18px;
+      display:inline-flex; align-items:center; gap:10px;
+      font-family:var(--mono); font-size:10px; color:var(--accent);
+      text-transform:uppercase; letter-spacing:.2em; margin-bottom:16px;
     }
-    .section-label::before { content: ''; display: block; width: 20px; height: 1px; background: var(--accent); opacity: .6; }
+    .section-label::before { content:''; display:block; width:20px; height:1px; background:var(--accent); opacity:.6; }
 
-    .section-h { font-size: clamp(28px, 4vw, 48px); font-weight: 700; letter-spacing: -.04em; line-height: 1.05; margin-bottom: 14px; }
-    .section-sub { color: var(--text-muted); font-size: 17px; max-width: 540px; line-height: 1.72; }
+    .section-h { font-size:clamp(26px,3.8vw,46px); font-weight:700; letter-spacing:-.04em; line-height:1.06; margin-bottom:14px; }
+    .section-sub { color:var(--muted); font-size:16.5px; max-width:520px; line-height:1.72; }
 
     /* ━━━ CARDS ━━━ */
 
     .card {
-      background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg);
-      padding: 30px; transition: border-color .3s, transform .3s, box-shadow .3s;
-      position: relative; overflow: hidden;
+      background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius-lg);
+      padding:28px; transition:border-color .3s, transform .3s, box-shadow .3s;
+      position:relative; overflow:hidden;
     }
     .card::before {
-      content: ''; position: absolute; inset: 0;
-      background: radial-gradient(circle at var(--mx,50%) var(--my,50%), rgba(199,243,107,.05), transparent 60%);
-      opacity: 0; transition: opacity .4s; pointer-events: none;
+      content:''; position:absolute; inset:0;
+      background:radial-gradient(circle at var(--mx,50%) var(--my,50%),rgba(199,243,107,.05),transparent 60%);
+      opacity:0; transition:opacity .4s; pointer-events:none;
     }
-    .card:hover::before { opacity: 1; }
-    .card:hover { border-color: var(--border-hi); transform: translateY(-2px); box-shadow: 0 16px 48px rgba(0,0,0,.35); }
+    .card:hover::before { opacity:1; }
+    .card:hover { border-color:var(--border-hi); transform:translateY(-2px); box-shadow:0 16px 48px rgba(0,0,0,.35); }
 
     /* ━━━ PROFILE ━━━ */
 
-    .profile-layout { display: grid; grid-template-columns: 300px 1fr; gap: 72px; align-items: start; }
-    .profile-sticky { position: sticky; top: 90px; }
+    .profile-layout { display:grid; grid-template-columns:280px 1fr; gap:68px; align-items:start; }
+    .profile-sticky { position:sticky; top:88px; }
 
     .photo-frame {
-      width: 100%; aspect-ratio: 3/4; border-radius: var(--radius-lg); overflow: hidden;
-      border: 1px solid var(--border); background: var(--bg-raised); position: relative; margin-bottom: 20px;
+      width:100%; aspect-ratio:3/4; border-radius:var(--radius-lg); overflow:hidden;
+      border:1px solid var(--border); background:var(--bg-raised); position:relative; margin-bottom:18px;
     }
-    .photo-frame img { width: 100%; height: 100%; object-fit: cover; object-position: center top; filter: grayscale(10%) brightness(.95); }
-    .photo-frame::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, transparent 55%, rgba(5,5,5,.55)); }
-    .photo-placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-family: var(--mono); font-size: 11px; color: var(--text-dim); letter-spacing: .1em; }
+    .photo-frame img { width:100%; height:100%; object-fit:cover; object-position:center top; filter:grayscale(10%) brightness(.95); }
+    .photo-frame::after { content:''; position:absolute; inset:0; background:linear-gradient(to bottom,transparent 55%,rgba(5,5,5,.55)); }
+    .photo-placeholder { width:100%; height:100%; display:flex; align-items:center; justify-content:center; font-family:var(--mono); font-size:11px; color:var(--dim); }
 
     .status-pill {
-      display: inline-flex; align-items: center; gap: 9px; padding: 9px 16px;
-      border-radius: 999px; border: 1px solid var(--border); background: var(--bg-card);
-      font-size: 12px; color: var(--text-muted);
+      display:inline-flex; align-items:center; gap:9px; padding:9px 16px;
+      border-radius:999px; border:1px solid var(--border); background:var(--bg-card); font-size:12px; color:var(--muted);
     }
-    .status-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); flex-shrink: 0; animation: pulse-dot 2.2s ease-in-out infinite; }
+    .status-dot { width:7px; height:7px; border-radius:50%; background:var(--accent); flex-shrink:0; animation:pulse 2.2s ease-in-out infinite; }
+    @keyframes pulse { 0%,100%{box-shadow:0 0 0 0 var(--accent-glo)} 50%{box-shadow:0 0 0 6px transparent} }
 
-    @keyframes pulse-dot {
-      0%,100% { box-shadow: 0 0 0 0 var(--accent-glow); }
-      50%      { box-shadow: 0 0 0 6px transparent; }
+    .profile-right p { color:var(--muted); font-size:16px; line-height:1.78; margin-bottom:18px; }
+    .profile-right p strong { color:var(--text); font-weight:500; }
+
+    .trans-block {
+      display:flex; align-items:center; gap:14px; padding:16px 20px;
+      border:1px solid var(--border); border-radius:var(--radius); background:var(--bg-card); margin:24px 0;
     }
-
-    .profile-text p { color: var(--text-muted); font-size: 16px; line-height: 1.78; margin-bottom: 18px; }
-    .profile-text p strong { color: var(--text); font-weight: 500; }
-
-    .transition-block {
-      display: flex; align-items: center; gap: 16px; padding: 18px 22px;
-      border: 1px solid var(--border); border-radius: var(--radius); background: var(--bg-card); margin: 26px 0;
-    }
-    .trans-col { flex: 1; }
-    .trans-head { font-family: var(--mono); font-size: 10px; color: var(--text-dim); text-transform: uppercase; letter-spacing: .12em; margin-bottom: 6px; }
-    .trans-items { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
-    .trans-arrow-col { font-size: 22px; color: var(--accent); flex-shrink: 0; }
+    .trans-col { flex:1; }
+    .trans-head { font-family:var(--mono); font-size:10px; color:var(--dim); text-transform:uppercase; letter-spacing:.12em; margin-bottom:5px; }
+    .trans-items { font-size:13px; color:var(--muted); line-height:1.6; }
+    .trans-arr { font-size:20px; color:var(--accent); flex-shrink:0; }
 
     /* ━━━ PROJECTS ━━━ */
 
-    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .grid-3 { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
 
     .proj-card {
-      background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg);
-      padding: 30px; display: flex; flex-direction: column; gap: 18px;
-      transition: all .3s; position: relative; overflow: hidden;
+      background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius-lg);
+      padding:28px; display:flex; flex-direction:column; gap:16px; transition:all .3s; position:relative; overflow:hidden;
     }
     .proj-card::after {
-      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
-      background: linear-gradient(90deg, transparent, var(--accent), transparent);
-      opacity: 0; transition: opacity .4s;
+      content:''; position:absolute; top:0; left:0; right:0; height:1px;
+      background:linear-gradient(90deg,transparent,var(--accent),transparent); opacity:0; transition:opacity .4s;
     }
-    .proj-card:hover::after { opacity: .4; }
-    .proj-card:hover { border-color: var(--border-hi); transform: translateY(-3px); box-shadow: 0 24px 64px rgba(0,0,0,.4); }
+    .proj-card:hover::after { opacity:.4; }
+    .proj-card:hover { border-color:var(--border-hi); transform:translateY(-3px); box-shadow:0 24px 64px rgba(0,0,0,.4); }
 
-    .proj-head { display: flex; justify-content: space-between; align-items: flex-start; }
-    .proj-num { font-family: var(--mono); font-size: 10px; color: var(--text-dim); letter-spacing: .1em; text-transform: uppercase; margin-bottom: 10px; }
-    .proj-card h3 { font-size: 19px; font-weight: 600; letter-spacing: -.025em; }
-    .proj-card p { color: var(--text-muted); font-size: 14px; line-height: 1.66; }
-    .proj-link { font-size: 16px; color: var(--text-dim); transition: color .2s; flex-shrink: 0; }
-    .proj-link:hover { color: var(--accent); }
+    .proj-num { font-family:var(--mono); font-size:10px; color:var(--dim); text-transform:uppercase; letter-spacing:.1em; margin-bottom:8px; }
+    .proj-card h3 { font-size:18px; font-weight:600; letter-spacing:-.025em; }
+    .proj-card p { color:var(--muted); font-size:14px; line-height:1.65; }
+    .proj-link { font-size:15px; color:var(--dim); transition:color .2s; }
+    .proj-link:hover { color:var(--accent); }
 
-    .arch-box { background: rgba(0,0,0,.35); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 18px; font-family: var(--mono); font-size: 11px; }
-    .arch-row { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin-bottom: 8px; }
-    .arch-row:last-child { margin-bottom: 0; }
-    .anode { display: inline-block; padding: 3px 9px; border-radius: 5px; border: 1px solid var(--border); background: rgba(255,255,255,.04); color: var(--text-muted); font-size: 10.5px; white-space: nowrap; }
-    .anode-hi { border-color: rgba(199,243,107,.28); background: rgba(199,243,107,.07); color: var(--accent); }
-    .anode-arr { color: var(--text-dim); font-size: 10px; }
+    .arch-box { background:rgba(0,0,0,.35); border:1px solid var(--border); border-radius:var(--radius); padding:14px 16px; font-family:var(--mono); font-size:11px; }
+    .arch-row { display:flex; align-items:center; gap:6px; flex-wrap:wrap; margin-bottom:7px; }
+    .arch-row:last-child { margin-bottom:0; }
+    .anode { display:inline-block; padding:3px 8px; border-radius:5px; border:1px solid var(--border); background:rgba(255,255,255,.04); color:var(--muted); font-size:10.5px; white-space:nowrap; }
+    .anode-hi { border-color:rgba(199,243,107,.28); background:rgba(199,243,107,.07); color:var(--accent); }
+    .anode-arr { color:var(--dim); font-size:10px; }
 
-    .tag-row { display: flex; flex-wrap: wrap; gap: 6px; }
-    .tag { padding: 4px 10px; border-radius: 999px; border: 1px solid var(--border); background: rgba(255,255,255,.04); color: var(--text-muted); font-family: var(--mono); font-size: 11px; }
-    .tag-accent { border-color: rgba(199,243,107,.22); background: rgba(199,243,107,.07); color: var(--accent); }
-
-    /* ━━━ SECURITY ━━━ */
-
-    .sec-intro { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; margin-bottom: 52px; padding-bottom: 52px; border-bottom: 1px solid var(--border); }
-    .sec-right p { color: var(--text-muted); font-size: 15px; line-height: 1.72; }
-    .sec-right code { display: inline-block; font-family: var(--mono); font-size: 12px; color: var(--accent); background: var(--accent-dim); padding: 2px 8px; border-radius: 4px; border: 1px solid rgba(199,243,107,.16); }
-
-    .sec-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
-    .sec-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; transition: all .3s; }
-    .sec-card:hover { border-color: rgba(199,243,107,.18); background: rgba(199,243,107,.02); transform: translateY(-2px); }
-    .sec-cat { font-family: var(--mono); font-size: 10px; color: var(--accent); text-transform: uppercase; letter-spacing: .15em; margin-bottom: 9px; }
-    .sec-card h4 { font-size: 15px; font-weight: 600; letter-spacing: -.02em; margin-bottom: 10px; }
-    .sec-card p { font-size: 13.5px; color: var(--text-muted); line-height: 1.65; }
-
-    /* ━━━ WORKFLOW ━━━ */
-
-    .workflow-track { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; position: relative; margin-top: 56px; }
-    .workflow-track::before { content: ''; position: absolute; top: 27px; left: calc(10% + 12px); right: calc(10% + 12px); height: 1px; background: linear-gradient(90deg, var(--accent), rgba(199,243,107,.08)); z-index: 0; }
-
-    .wf-step { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 0 10px; position: relative; z-index: 1; }
-    .wf-circle { width: 54px; height: 54px; border-radius: 50%; border: 1px solid var(--border); background: var(--bg); display: flex; align-items: center; justify-content: center; font-size: 18px; margin-bottom: 18px; transition: all .3s; }
-    .wf-step:hover .wf-circle { border-color: var(--accent); background: var(--accent-dim); box-shadow: 0 0 22px rgba(199,243,107,.18); }
-    .wf-title { font-size: 12.5px; font-weight: 600; letter-spacing: -.015em; margin-bottom: 6px; }
-    .wf-sub { font-size: 11.5px; color: var(--text-dim); line-height: 1.55; }
-
-    .cc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; align-items: center; margin-top: 52px; }
-    .cc-text h3 { font-size: 22px; font-weight: 600; letter-spacing: -.03em; margin-bottom: 14px; }
-    .cc-text p { color: var(--text-muted); font-size: 15px; line-height: 1.72; }
-
-    .terminal { background: #080808; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
-    .terminal-bar { display: flex; align-items: center; gap: 6px; padding: 10px 14px; border-bottom: 1px solid var(--border); background: rgba(255,255,255,.02); }
-    .dot-r { width:10px; height:10px; border-radius:50%; background:#ff5f57; }
-    .dot-y { width:10px; height:10px; border-radius:50%; background:#febc2e; }
-    .dot-g { width:10px; height:10px; border-radius:50%; background:#28c840; }
-    .terminal-body { padding: 18px 20px; font-family: var(--mono); font-size: 12px; line-height: 1.9; }
-    .tl { display: block; }
-    .tl-prompt { color: var(--accent); }
-    .tl-sys    { color: var(--text-dim); }
-    .tl-ok     { color: var(--accent); }
-    .tl-out    { color: var(--text-muted); }
-    .cursor { display: inline-block; width: 7px; height: 14px; background: var(--accent); vertical-align: middle; animation: blink .9s step-end infinite; }
-    @keyframes blink { 50% { opacity: 0; } }
+    .tag-row { display:flex; flex-wrap:wrap; gap:6px; }
+    .tag { padding:4px 10px; border-radius:999px; border:1px solid var(--border); background:rgba(255,255,255,.04); color:var(--muted); font-family:var(--mono); font-size:11px; }
+    .tag-acc { border-color:rgba(199,243,107,.22); background:rgba(199,243,107,.07); color:var(--accent); }
 
     /* ━━━ EXPERIENCE ━━━ */
 
-    .exp-layout { display: grid; grid-template-columns: 260px 1fr; gap: 56px; margin-top: 48px; }
-    .exp-sidebar .exp-item { padding: 18px 20px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--bg-card); margin-bottom: 12px; transition: all .25s; }
-    .exp-item:hover { border-color: var(--border-hi); }
-    .exp-item.active { border-color: rgba(199,243,107,.22); background: rgba(199,243,107,.03); }
-    .exp-co { font-size: 14px; font-weight: 600; margin-bottom: 3px; }
-    .exp-co.accent { color: var(--accent); }
-    .exp-role-tag { font-family: var(--mono); font-size: 10px; color: var(--text-dim); text-transform: uppercase; letter-spacing: .08em; }
+    .exp-grid { display:grid; grid-template-columns:250px 1fr; gap:52px; margin-top:44px; }
+    .exp-sidebar .exp-item { padding:16px 18px; border:1px solid var(--border); border-radius:var(--radius); background:var(--bg-card); margin-bottom:10px; transition:all .25s; cursor:default; }
+    .exp-item.active { border-color:rgba(199,243,107,.22); background:rgba(199,243,107,.02); }
+    .exp-co { font-size:14px; font-weight:600; margin-bottom:3px; }
+    .exp-co.green { color:var(--accent); }
+    .exp-role-tag { font-family:var(--mono); font-size:10px; color:var(--dim); text-transform:uppercase; letter-spacing:.08em; }
 
-    .exp-detail { border: 1px solid var(--border); border-radius: var(--radius-lg); background: var(--bg-card); overflow: hidden; }
-    .exp-detail-header { padding: 28px 32px 24px; border-bottom: 1px solid var(--border); }
-    .exp-detail-header h3 { font-size: 20px; font-weight: 600; letter-spacing: -.03em; margin-bottom: 4px; }
-    .exp-period { font-family: var(--mono); font-size: 11px; color: var(--text-dim); letter-spacing: .06em; }
+    .exp-detail { border:1px solid var(--border); border-radius:var(--radius-lg); background:var(--bg-card); overflow:hidden; }
+    .exp-detail-head { padding:26px 30px 22px; border-bottom:1px solid var(--border); }
+    .exp-detail-head h3 { font-size:19px; font-weight:600; letter-spacing:-.03em; margin-bottom:4px; }
+    .exp-period { font-family:var(--mono); font-size:11px; color:var(--dim); }
 
-    .exp-scale-bar { display: flex; gap: 0; border-bottom: 1px solid var(--border); }
-    .exp-scale-item { flex: 1; padding: 16px 20px; border-right: 1px solid var(--border); }
-    .exp-scale-item:last-child { border-right: none; }
-    .exp-scale-num { font-size: 18px; font-weight: 700; letter-spacing: -.04em; color: #fff; }
-    .exp-scale-label { font-family: var(--mono); font-size: 10px; color: var(--text-dim); text-transform: uppercase; letter-spacing: .08em; margin-top: 2px; }
+    .exp-stats { display:flex; border-bottom:1px solid var(--border); }
+    .exp-stat { flex:1; padding:14px 18px; border-right:1px solid var(--border); }
+    .exp-stat:last-child { border-right:none; }
+    .exp-stat-num { font-size:17px; font-weight:700; letter-spacing:-.04em; color:#fff; }
+    .exp-stat-label { font-family:var(--mono); font-size:10px; color:var(--dim); text-transform:uppercase; letter-spacing:.08em; margin-top:2px; }
 
-    .exp-detail-body { padding: 28px 32px; }
-    .exp-detail-body p { color: var(--text-muted); font-size: 15px; line-height: 1.72; margin-bottom: 20px; }
-    .exp-detail-body p strong { color: var(--text); font-weight: 500; }
-
-    .bullet-list { list-style: none; display: grid; gap: 10px; }
-    .bullet-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: var(--text-muted); line-height: 1.55; }
-    .bullet-list li::before { content: none; }
-    .b-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--accent); flex-shrink: 0; margin-top: 7px; }
+    .exp-detail-body { padding:26px 30px; }
+    .exp-detail-body p { color:var(--muted); font-size:15px; line-height:1.72; margin-bottom:18px; }
+    .exp-detail-body p strong { color:var(--text); font-weight:500; }
+    .bullet-list { list-style:none; display:grid; gap:9px; }
+    .bullet-list li { display:flex; align-items:flex-start; gap:10px; font-size:14px; color:var(--muted); line-height:1.55; }
+    .bullet-list li::before { content:none; }
+    .bdot { width:5px; height:5px; border-radius:50%; background:var(--accent); flex-shrink:0; margin-top:7px; }
 
     /* ━━━ STACK ━━━ */
 
-    .stack-wrap { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 40px; }
-    .stack-tag { padding: 9px 15px; border-radius: 999px; border: 1px solid var(--border); background: rgba(255,255,255,.03); color: #bbb; font-family: var(--mono); font-size: 12.5px; transition: all .22s; cursor: default; }
-    .stack-tag:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-dim); }
-    .stack-tag.featured { border-color: rgba(199,243,107,.22); color: var(--accent); background: var(--accent-dim); }
+    .stack-wrap { display:flex; flex-wrap:wrap; gap:8px; margin-top:38px; }
+    .stag { padding:8px 14px; border-radius:999px; border:1px solid var(--border); background:rgba(255,255,255,.03); color:#bbb; font-family:var(--mono); font-size:12px; transition:all .22s; cursor:default; }
+    .stag:hover { border-color:var(--accent); color:var(--accent); background:var(--accent-dim); }
+    .stag.ft { border-color:rgba(199,243,107,.22); color:var(--accent); background:var(--accent-dim); }
 
     /* ━━━ NEVERHACK ━━━ */
 
-    .nv-section { background: linear-gradient(160deg, rgba(199,243,107,.04) 0%, transparent 50%); }
+    .nv-section { background:linear-gradient(160deg,rgba(199,243,107,.04) 0%,transparent 50%); }
 
-    /* Neverhack logo recreation */
-    .nh-logo-block {
-      display: flex; align-items: center; gap: 16px;
-      padding: 20px 24px; border: 1px solid rgba(199,243,107,.18);
-      border-radius: var(--radius); background: rgba(199,243,107,.04);
-      margin-bottom: 40px; width: fit-content;
+    .nh-badge {
+      display:inline-flex; align-items:center; gap:14px; padding:16px 22px;
+      border:1px solid rgba(199,243,107,.2); border-radius:var(--radius);
+      background:rgba(199,243,107,.04); margin-bottom:36px; width:fit-content;
     }
+    .nh-name { font-size:16px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:#fff; }
+    .nh-sep { width:1px; height:24px; background:rgba(199,243,107,.25); }
+    .nh-sub { font-family:var(--mono); font-size:10px; color:var(--accent); text-transform:uppercase; letter-spacing:.14em; line-height:1.6; }
 
-    .nh-logo-svg { display: flex; align-items: center; gap: 8px; }
+    .nv-grid { display:grid; grid-template-columns:1.1fr 1fr; gap:64px; align-items:start; }
+    .nv-h { font-size:clamp(24px,3.5vw,40px); font-weight:700; letter-spacing:-.04em; line-height:1.08; }
+    .nv-h em { font-style:normal; color:var(--accent); }
+    .nv-p { color:var(--muted); font-size:16px; line-height:1.75; margin-top:18px; }
 
-    .nh-logo-text {
-      font-size: 18px; font-weight: 700; letter-spacing: .12em;
-      text-transform: uppercase; color: #fff;
+    .value-list { list-style:none; display:grid; gap:14px; }
+    .value-list li { display:flex; gap:12px; font-size:14px; color:var(--muted); line-height:1.6; }
+    .value-list li::before { content:none; }
+    .vi { color:var(--accent); flex-shrink:0; font-size:14px; margin-top:1px; }
+    .value-list li strong { color:var(--text); font-weight:500; }
+
+    /* ━━━ CONTACT ━━━ */
+
+    .contact-section { border-top:1px solid var(--border); }
+
+    .contact-grid { display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-top:44px; }
+
+    .contact-card {
+      display:flex; align-items:center; gap:18px;
+      padding:24px 28px; border:1px solid var(--border); border-radius:var(--radius-lg);
+      background:var(--bg-card); transition:all .3s; text-decoration:none;
     }
+    .contact-card:hover { border-color:var(--accent); background:var(--accent-dim); transform:translateY(-2px); }
+    .contact-icon { font-size:22px; flex-shrink:0; }
+    .contact-label { font-family:var(--mono); font-size:10px; color:var(--dim); text-transform:uppercase; letter-spacing:.12em; margin-bottom:5px; }
+    .contact-value { font-size:16px; font-weight:500; color:var(--text); letter-spacing:-.01em; }
+    .contact-hint { font-size:12px; color:var(--muted); margin-top:3px; }
 
-    .nh-logo-sep { width: 1px; height: 28px; background: rgba(199,243,107,.25); }
-
-    .nh-logo-tagline {
-      font-family: var(--mono); font-size: 10px; color: var(--accent);
-      text-transform: uppercase; letter-spacing: .15em; line-height: 1.5;
+    .identity-bar {
+      display:flex; align-items:center; gap:28px; flex-wrap:wrap;
+      padding:20px 24px; border:1px solid var(--border); border-radius:var(--radius);
+      background:var(--bg-card); margin-bottom:24px;
     }
+    .identity-item { display:flex; flex-direction:column; gap:3px; }
+    .identity-label { font-family:var(--mono); font-size:10px; color:var(--dim); text-transform:uppercase; letter-spacing:.1em; }
+    .identity-value { font-size:14px; color:var(--text); font-weight:500; }
+    .identity-sep { width:1px; height:36px; background:var(--border); }
 
-    .nv-layout { display: grid; grid-template-columns: 1.1fr 1fr; gap: 72px; align-items: start; }
+    /* ━━━ TERMINAL ━━━ */
 
-    .nv-statement { font-size: clamp(26px, 3.5vw, 42px); font-weight: 700; letter-spacing: -.04em; line-height: 1.08; }
-    .nv-statement em { font-style: normal; color: var(--accent); }
-
-    .nv-body { color: var(--text-muted); font-size: 16px; line-height: 1.75; margin-top: 20px; }
-
-    /* 3 Pillars alignment */
-    .pillars-grid { display: grid; grid-template-columns: 1fr; gap: 14px; }
-
-    .pillar-card {
-      padding: 20px 22px; border: 1px solid var(--border); border-radius: var(--radius);
-      background: var(--bg-card); transition: all .3s;
-    }
-    .pillar-card:hover { border-color: rgba(199,243,107,.2); background: rgba(199,243,107,.02); }
-
-    .pillar-head { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
-    .pillar-num { font-family: var(--mono); font-size: 10px; color: var(--accent); letter-spacing: .12em; }
-    .pillar-title { font-size: 13px; font-weight: 600; letter-spacing: -.01em; }
-    .pillar-body { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
-    .pillar-body strong { color: var(--text); font-weight: 500; }
-
-    /* ━━━ AUDIT CALLOUT ━━━ */
-
-    .audit-banner {
-      margin-top: 60px; padding: 28px 32px;
-      border: 1px solid rgba(199,243,107,.14);
-      border-radius: var(--radius-lg);
-      background: rgba(199,243,107,.03);
-      display: grid; grid-template-columns: auto 1fr; gap: 20px; align-items: start;
-    }
-    .audit-icon { font-family: var(--mono); font-size: 11px; color: var(--accent); letter-spacing: .12em; white-space: nowrap; padding-top: 2px; }
-    .audit-text { font-size: 14px; color: var(--text-muted); line-height: 1.7; }
-    .audit-text strong { color: var(--text); font-weight: 500; }
+    .terminal { background:#080808; border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; }
+    .terminal-bar { display:flex; align-items:center; gap:6px; padding:10px 14px; border-bottom:1px solid var(--border); background:rgba(255,255,255,.02); }
+    .dot-r{width:10px;height:10px;border-radius:50%;background:#ff5f57}
+    .dot-y{width:10px;height:10px;border-radius:50%;background:#febc2e}
+    .dot-g{width:10px;height:10px;border-radius:50%;background:#28c840}
+    .terminal-body { padding:16px 20px; font-family:var(--mono); font-size:12px; line-height:1.9; }
+    .tl { display:block; }
+    .tp { color:var(--accent); }
+    .ts { color:var(--dim); }
+    .to { color:var(--muted); }
+    .cursor { display:inline-block; width:7px; height:14px; background:var(--accent); vertical-align:middle; animation:blink .9s step-end infinite; }
+    @keyframes blink { 50%{opacity:0} }
 
     /* ━━━ FOOTER ━━━ */
 
-    footer { padding: 56px 0; border-top: 1px solid var(--border); position: relative; z-index: 1; }
-    .footer-row { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
-    .footer-left p { font-size: 13px; color: var(--text-dim); margin-top: 4px; }
-    .footer-links { display: flex; gap: 22px; }
-    .footer-links a { font-size: 13px; color: var(--text-muted); transition: color .2s; }
-    .footer-links a:hover { color: var(--accent); }
+    footer { padding:48px 0; border-top:1px solid var(--border); position:relative; z-index:1; }
+    .footer-row { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:20px; }
+    .footer-left p { font-size:13px; color:var(--dim); margin-top:4px; }
+    .footer-links { display:flex; gap:20px; }
+    .footer-links a { font-size:13px; color:var(--muted); transition:color .2s; }
+    .footer-links a:hover { color:var(--accent); }
 
     /* ━━━ REVEAL ━━━ */
 
-    .reveal { opacity: 0; transform: translateY(20px); transition: opacity .65s ease, transform .65s ease; }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
-    .d1 { transition-delay: .08s; } .d2 { transition-delay: .16s; } .d3 { transition-delay: .24s; }
-    .d4 { transition-delay: .32s; } .d5 { transition-delay: .40s; }
+    .reveal { opacity:0; transform:translateY(20px); transition:opacity .65s ease, transform .65s ease; }
+    .reveal.visible { opacity:1; transform:translateY(0); }
+    .d1{transition-delay:.08s} .d2{transition-delay:.16s} .d3{transition-delay:.24s}
+    .d4{transition-delay:.32s} .d5{transition-delay:.40s}
 
     /* ━━━ RESPONSIVE ━━━ */
 
-    @media (max-width: 900px) {
-      .grid-3, .sec-grid, .sec-intro { grid-template-columns: 1fr; }
-      .profile-layout, .nv-layout, .exp-layout, .cc-grid { grid-template-columns: 1fr; gap: 36px; }
-      .workflow-track { grid-template-columns: 1fr 1fr; }
-      .workflow-track::before { display: none; }
-      .nav-links { display: none; }
-      .profile-sticky { position: static; }
-      .exp-scale-bar { flex-wrap: wrap; }
+    @media(max-width:900px){
+      .grid-3,.nv-grid,.contact-grid{grid-template-columns:1fr}
+      .profile-layout,.exp-grid{grid-template-columns:1fr; gap:32px}
+      .nav-links{display:none}
+      .profile-sticky{position:static}
+      .exp-stats{flex-wrap:wrap}
+      .identity-bar{gap:16px}
     }
-    @media (max-width: 560px) {
-      .workflow-track { grid-template-columns: 1fr; }
-      .hero-metrics { flex-direction: column; width: 100%; }
-      .metric { border-right: none; border-bottom: 1px solid var(--border); }
-      .metric:last-child { border-bottom: none; }
+    @media(max-width:560px){
+      .hero-metrics{flex-direction:column; width:100%}
+      .metric{border-right:none; border-bottom:1px solid var(--border)}
+      .metric:last-child{border-bottom:none}
     }
   </style>
 </head>
 <body>
 
-<!-- ━━ HEADER ━━ -->
-<header id="site-header">
+<header id="hdr">
   <div class="container">
     <nav>
       <div class="logo">BRANCO <span class="logo-accent">BENITEZ</span></div>
-      <div class="nav-links">
-        <a href="#profile">Profile</a>
-        <a href="#projects">Projects</a>
-        <a href="#security">Security</a>
-        <a href="#workflow">Workflow</a>
-        <a href="#stack">Stack</a>
-        <a href="#neverhack" class="nav-cta">For Neverhack</a>
+      <div class="nav-right">
+        <div class="nav-links">
+          <a href="#profile"   data-i18n="nav.profile">Perfil</a>
+          <a href="#projects"  data-i18n="nav.projects">Proyectos</a>
+          <a href="#experience" data-i18n="nav.experience">Experiencia</a>
+          <a href="#stack">Stack</a>
+          <a href="#neverhack" data-i18n="nav.neverhack">Para Neverhack</a>
+        </div>
+        <div class="lang-toggle">
+          <button class="lang-btn" id="btn-es" onclick="setLang('es')">ES</button>
+          <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+        </div>
+        <a href="#contact" class="nav-cta" data-i18n="nav.contact">Contacto</a>
       </div>
     </nav>
   </div>
 </header>
 
-<!-- ━━ HERO ━━ -->
+<!-- HERO -->
 <section class="hero">
-  <div class="hero-orb orb-1"></div>
-  <div class="hero-orb orb-2"></div>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
   <div class="container">
-    <div class="eyebrow">
-      <span class="eyebrow-line"></span>
-      IA Architect · AI-Native Systems · Sovereign Architecture
-    </div>
-    <h1>Designing AI systems<br/>built for <em>sovereign,</em><br/>defence-grade environments.</h1>
-    <p class="hero-sub">
-      From enterprise data at scale to AI-native automation — I architect modern systems where security, intelligence, and operational rigour are inseparable from the first design decision.
-    </p>
+    <div class="eyebrow" data-i18n="hero.eyebrow">AI Automation & Integration Engineer · Sector Bancario · Palma de Mallorca</div>
+    <h1 data-i18n-html="hero.h1">Automatizo flujos de negocio<br/>con <em>IA real.</em><br/>Integro. Despliego. Funciona.</h1>
+    <p class="hero-sub" data-i18n="hero.sub">Diseño e implemento sistemas de automatización con IA — integraciones LLM, pipelines API y workflows — con foco en fiabilidad operacional y manejo seguro de datos en entornos regulados.</p>
     <div class="hero-metrics">
       <div class="metric">
         <span class="metric-num">AI-native</span>
-        <span class="metric-label">Architecture approach</span>
+        <span class="metric-label" data-i18n="metric.approach">Enfoque de trabajo</span>
       </div>
       <div class="metric">
         <span class="metric-num">450M+</span>
-        <span class="metric-label">Users · Mercado Libre data</span>
+        <span class="metric-label" data-i18n="metric.users">Usuarios · Datos empresariales</span>
       </div>
       <div class="metric">
-        <span class="metric-num">18</span>
-        <span class="metric-label">Countries · Enterprise scale</span>
+        <span class="metric-num">26</span>
+        <span class="metric-label" data-i18n="metric.age">Años · Palma de Mallorca</span>
       </div>
       <div class="metric">
-        <span class="metric-num">Palma</span>
-        <span class="metric-label">de Mallorca · On-site ready</span>
+        <span class="metric-num">3+</span>
+        <span class="metric-label" data-i18n="metric.systems">Sistemas IA desplegados</span>
       </div>
     </div>
     <div class="buttons">
-      <a class="btn btn-primary" href="#neverhack">For Neverhack</a>
-      <a class="btn btn-ghost" href="#projects">View Projects ↓</a>
+      <a class="btn btn-primary" href="#neverhack" data-i18n="hero.cta1">Ver propuesta</a>
+      <a class="btn btn-ghost" href="#contact" data-i18n="hero.cta2">Contactar →</a>
     </div>
   </div>
 </section>
 
-<!-- ━━ PROFILE ━━ -->
-<section id="profile" style="border-top: 1px solid var(--border);">
+<!-- PROFILE -->
+<section id="profile" style="border-top:1px solid var(--border)">
   <div class="container">
     <div class="profile-layout">
 
@@ -515,35 +430,35 @@
         </div>
         <div class="status-pill">
           <span class="status-dot"></span>
-          Available · Palma de Mallorca, Spain
+          <span data-i18n="status">Disponible · Palma de Mallorca</span>
         </div>
       </div>
 
-      <div class="profile-text">
-        <div class="section-label reveal">Profile</div>
-        <h2 class="section-h reveal">Enterprise data foundations.<br/>AI-native engineering future.</h2>
+      <div class="profile-right">
+        <div class="section-label reveal" data-i18n="section.profile">Perfil</div>
+        <h2 class="section-h reveal" data-i18n-html="profile.h">Bases analíticas reales.<br/>Trayectoria hacia IA aplicada.</h2>
 
-        <p class="reveal d1">
-          I built my analytical foundations inside <strong>Mercado Libre</strong> — one of Latin America's most complex data environments, operating at 450M+ users across 18 countries. That experience gave me something rare: an intuition for how <strong>data flows through enterprise-scale production systems</strong>, where it fails, and how to extract operational intelligence from it under pressure.
+        <p class="reveal d1" data-i18n-html="profile.p1">
+          Comencé mi carrera como analista de datos en <strong>Mercado Libre</strong> — uno de los entornos de datos más complejos de América Latina, con más de 450M de usuarios activos en 18 países. Eso me dio algo que no se aprende en un curso: intuición real sobre cómo los datos fluyen a través de sistemas de producción a escala empresarial, dónde fallan, y cómo extraer inteligencia operacional bajo presión.
         </p>
-        <p class="reveal d2">
-          Today I architect <strong>AI-native systems</strong>: webhook pipelines, LLM integrations, full-stack platforms, and automation workflows. I think architecturally about how AI components should be isolated, validated, and hardened before they touch production data — the same discipline that Neverhack applies at the defence layer.
+        <p class="reveal d2" data-i18n-html="profile.p2">
+          Hoy construyo <strong>sistemas de automatización con IA</strong>: pipelines de webhooks, integraciones LLM, plataformas full-stack y workflows automáticos. No pretendo ser un senior architect con 15 años de banca. Soy un perfil en transición activa, con proyectos reales desplegados en producción y una capacidad de aprendizaje rápido demostrada con resultados concretos.
         </p>
 
-        <div class="transition-block reveal d3">
+        <div class="trans-block reveal d3">
           <div class="trans-col">
-            <div class="trans-head">Enterprise background</div>
-            <div class="trans-items">Mercado Libre · Peroptyx<br/>Data at scale · 18 countries</div>
+            <div class="trans-head" data-i18n="trans.from">Origen</div>
+            <div class="trans-items">Mercado Libre · Peroptyx<br/>Datos · Analytics · GIS</div>
           </div>
-          <div class="trans-arrow-col">→</div>
+          <div class="trans-arr">→</div>
           <div class="trans-col">
-            <div class="trans-head">Current trajectory</div>
-            <div class="trans-items">AI Architecture · Sovereign Systems<br/>Secure APIs · Cloud-native</div>
+            <div class="trans-head" data-i18n="trans.to">Hacia</div>
+            <div class="trans-items">AI Automation · Integración<br/>APIs · LLMs · Cloud</div>
           </div>
         </div>
 
-        <p class="reveal d4">
-          The profile Neverhack describes — someone who can bridge <strong>AI architecture, data governance, and security-aware systems thinking</strong> — is exactly the direction I have been building toward. Not from theory. From real systems, shipped to production.
+        <p class="reveal d4" data-i18n-html="profile.p3">
+          Lo que traigo a Neverhack no es experiencia bancaria ficticia. Es un <strong>mindset orientado a arquitectura, velocidad real de aprendizaje, y proyectos de automatización IA funcionando en producción ahora mismo.</strong>
         </p>
       </div>
 
@@ -551,56 +466,24 @@
   </div>
 </section>
 
-<!-- ━━ PROJECTS ━━ -->
-<section id="projects" style="border-top: 1px solid var(--border); background: rgba(0,0,0,.18);">
+<!-- PROJECTS -->
+<section id="projects" style="border-top:1px solid var(--border); background:rgba(0,0,0,.18)">
   <div class="container">
-    <div class="section-label reveal">Selected Work</div>
-    <h2 class="section-h reveal">Systems built.<br/>Shipped. Working.</h2>
-    <p class="section-sub reveal">Real architecture decisions with real consequences.</p>
+    <div class="section-label reveal" data-i18n="section.projects">Proyectos</div>
+    <h2 class="section-h reveal" data-i18n-html="projects.h">Automatización real.<br/>Desplegada. Funcionando.</h2>
+    <p class="section-sub reveal" data-i18n="projects.sub">Arquitecturas reales con decisiones reales — no demos ni tutoriales.</p>
 
-    <div class="grid-3" style="margin-top: 46px;">
+    <div class="grid-3" style="margin-top:44px">
 
       <div class="proj-card reveal d1">
-        <div class="proj-head">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start">
           <div>
-            <div class="proj-num">01 · Studio</div>
-            <h3>Fung Creative Studio</h3>
-          </div>
-          <a class="proj-link" href="https://wearefung.com" target="_blank">↗</a>
-        </div>
-        <p>Creative technology studio built on AI-assisted engineering — Next.js, Vercel Edge, and a production-grade CI/CD pipeline from day one.</p>
-        <div class="arch-box">
-          <div class="arch-row">
-            <span class="anode anode-hi">Next.js</span>
-            <span class="anode-arr">→</span>
-            <span class="anode">Vercel Edge</span>
-            <span class="anode-arr">→</span>
-            <span class="anode">CDN</span>
-          </div>
-          <div class="arch-row">
-            <span class="anode">GitHub CI</span>
-            <span class="anode-arr">→</span>
-            <span class="anode">Preview</span>
-            <span class="anode-arr">→</span>
-            <span class="anode anode-hi">Production</span>
-          </div>
-        </div>
-        <div class="tag-row">
-          <span class="tag tag-accent">Next.js</span>
-          <span class="tag">TypeScript</span>
-          <span class="tag">Vercel</span>
-          <span class="tag">Framer Motion</span>
-        </div>
-      </div>
-
-      <div class="proj-card reveal d2">
-        <div class="proj-head">
-          <div>
-            <div class="proj-num">02 · Automation</div>
+            <div class="proj-num">01 · <span data-i18n="proj.automation">Automatización</span></div>
             <h3>WhatsApp AI Assistant</h3>
           </div>
+          <span class="proj-link">↗</span>
         </div>
-        <p>Conversational automation with HMAC webhook validation, AI processing isolation, and secure API chaining — built with a security-first architecture.</p>
+        <p data-i18n="proj1.desc">Sistema de automatización conversacional con arquitectura webhook, validación HMAC, capas de procesamiento LLM aisladas e integración segura con APIs externas. Diseñado para workflows de negocio reales.</p>
         <div class="arch-box">
           <div class="arch-row">
             <span class="anode">WA Cloud API</span>
@@ -618,21 +501,54 @@
           </div>
         </div>
         <div class="tag-row">
-          <span class="tag tag-accent">Webhooks</span>
+          <span class="tag tag-acc">Webhooks</span>
           <span class="tag">OpenAI API</span>
           <span class="tag">HMAC Auth</span>
           <span class="tag">Node.js</span>
         </div>
       </div>
 
-      <div class="proj-card reveal d3">
-        <div class="proj-head">
+      <div class="proj-card reveal d2">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start">
           <div>
-            <div class="proj-num">03 · Full-Stack</div>
-            <h3>Multilingual AI Platform</h3>
+            <div class="proj-num">02 · Studio</div>
+            <h3>Fung Creative Studio</h3>
+          </div>
+          <a class="proj-link" href="https://wearefung.com" target="_blank">↗</a>
+        </div>
+        <p data-i18n="proj2.desc">Estudio tecnológico construido sobre ingeniería AI-assisted. Next.js, Vercel Edge, pipeline CI/CD y arquitectura de despliegue de producción desde el primer día.</p>
+        <div class="arch-box">
+          <div class="arch-row">
+            <span class="anode anode-hi">Next.js</span>
+            <span class="anode-arr">→</span>
+            <span class="anode">Vercel Edge</span>
+            <span class="anode-arr">→</span>
+            <span class="anode">CDN</span>
+          </div>
+          <div class="arch-row">
+            <span class="anode">GitHub CI</span>
+            <span class="anode-arr">→</span>
+            <span class="anode">Preview</span>
+            <span class="anode-arr">→</span>
+            <span class="anode anode-hi">Production</span>
           </div>
         </div>
-        <p>Next.js platform with i18n routing architecture, SSG optimisation, and full CI/CD pipeline — multilingual, performant, production-deployed.</p>
+        <div class="tag-row">
+          <span class="tag tag-acc">Next.js</span>
+          <span class="tag">TypeScript</span>
+          <span class="tag">Vercel</span>
+          <span class="tag">AI-assisted dev</span>
+        </div>
+      </div>
+
+      <div class="proj-card reveal d3">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start">
+          <div>
+            <div class="proj-num">03 · Full-Stack</div>
+            <h3 data-i18n="proj3.title">Plataforma Multilingüe IA</h3>
+          </div>
+        </div>
+        <p data-i18n="proj3.desc">Plataforma Next.js con arquitectura i18n, optimización SSG y pipeline CI/CD completo — multilingüe, performante, en producción.</p>
         <div class="arch-box">
           <div class="arch-row">
             <span class="anode anode-hi">i18n Router</span>
@@ -650,7 +566,7 @@
           </div>
         </div>
         <div class="tag-row">
-          <span class="tag tag-accent">Next.js i18n</span>
+          <span class="tag tag-acc">Next.js i18n</span>
           <span class="tag">TypeScript</span>
           <span class="tag">Tailwind</span>
           <span class="tag">SSG</span>
@@ -661,195 +577,50 @@
   </div>
 </section>
 
-<!-- ━━ SECURITY & AI ARCHITECTURE ━━ -->
-<section id="security" style="border-top: 1px solid var(--border);">
+<!-- EXPERIENCE -->
+<section id="experience" style="border-top:1px solid var(--border)">
   <div class="container">
+    <div class="section-label reveal" data-i18n="section.experience">Experiencia</div>
+    <h2 class="section-h reveal" data-i18n-html="exp.h">Entornos de datos reales.<br/>Escala empresarial real.</h2>
 
-    <div class="sec-intro">
-      <div>
-        <div class="section-label reveal">Security & AI Architecture</div>
-        <h2 class="section-h reveal">Security is an<br/>architectural property.</h2>
-        <p class="section-sub reveal">Not a layer added at the end. Every system I design starts with threat surface mapping, data flow isolation, and failure mode analysis — before the first line of code.</p>
-      </div>
-      <div class="sec-right reveal d2">
-        <p>
-          Modern AI systems introduce novel attack surfaces: <code>prompt injection</code>, <code>insecure API chaining</code>, <code>unvalidated webhook payloads</code>, <code>data exfiltration through LLM outputs</code>, and <code>log poisoning</code>. These aren't security team problems — they're architecture problems. I treat them as such from day one.
-        </p>
-      </div>
-    </div>
-
-    <div class="sec-grid">
-
-      <div class="sec-card reveal d1">
-        <div class="sec-cat">SIEM & Observability</div>
-        <h4>Splunk Enterprise & Log Architecture</h4>
-        <p>Designing structured log pipelines for Splunk ingestion — field extraction, index architecture, and search-time knowledge objects. Understanding how log quality at the source determines detection capability downstream in a SOC environment.</p>
-      </div>
-
-      <div class="sec-card reveal d2">
-        <div class="sec-cat">AI Systems</div>
-        <h4>AI Workflow Isolation</h4>
-        <p>Isolating LLM model calls from production data flows, sanitising inputs before processing, and validating outputs before surfacing. Prompt injection awareness and defence-in-depth thinking applied to AI pipeline architecture.</p>
-      </div>
-
-      <div class="sec-card reveal d3">
-        <div class="sec-cat">API Security</div>
-        <h4>Secure API Architecture</h4>
-        <p>API layers with authentication, rate limiting, and input validation as structural requirements. Webhook signature verification with HMAC-SHA256, token scoping, and deliberate request lifecycle management with audit trails.</p>
-      </div>
-
-      <div class="sec-card reveal d1">
-        <div class="sec-cat">Authentication</div>
-        <h4>Authentication Layer Design</h4>
-        <p>Token-based authentication flows, HMAC webhook validation, session architecture, and designing for authentication failure modes — including graceful degradation, anomaly detection hooks, and zero-trust access patterns.</p>
-      </div>
-
-      <div class="sec-card reveal d2">
-        <div class="sec-cat">Data Flow</div>
-        <h4>Data Flow Protection</h4>
-        <p>Mapping data flows end-to-end to identify exposure points. Designing pipelines where sensitive data is masked, encrypted, or excluded at the architecture level — not patched in later. Critical in environments with <strong>zero-retention</strong> requirements.</p>
-      </div>
-
-      <div class="sec-card reveal d3">
-        <div class="sec-cat">Infrastructure</div>
-        <h4>Secure Deployment Practices</h4>
-        <p>Environment isolation, secret management, protected CI/CD pipelines, and infrastructure-as-code thinking. Every secret scoped, rotated, and never logged. Deployment architectures designed for rollback, auditability, and minimal blast radius.</p>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ━━ AI ENGINEERING WORKFLOW ━━ -->
-<section id="workflow" style="border-top: 1px solid var(--border); background: rgba(0,0,0,.18);">
-  <div class="container">
-    <div class="section-label reveal">AI Engineering Workflow</div>
-    <h2 class="section-h reveal">Architecture-first.<br/>AI-augmented. Human-reviewed.</h2>
-    <p class="section-sub reveal">The same discipline that defines defence-grade engineering — verify before trust, isolate before integrate, review before deploy.</p>
-
-    <div class="workflow-track">
-      <div class="wf-step reveal d1">
-        <div class="wf-circle">◎</div>
-        <div class="wf-title">Architecture First</div>
-        <div class="wf-sub">System boundaries, data flows, threat surface — defined before any code</div>
-      </div>
-      <div class="wf-step reveal d2">
-        <div class="wf-circle">⬡</div>
-        <div class="wf-title">AI-Augmented Build</div>
-        <div class="wf-sub">Claude Code for scaffolding and iteration — with explicit human review gates</div>
-      </div>
-      <div class="wf-step reveal d3">
-        <div class="wf-circle">⊕</div>
-        <div class="wf-title">Security Review</div>
-        <div class="wf-sub">Every AI-generated output reviewed. Edge cases, injection vectors, and data paths validated</div>
-      </div>
-      <div class="wf-step reveal d4">
-        <div class="wf-circle">↑</div>
-        <div class="wf-title">CI/CD Deploy</div>
-        <div class="wf-sub">GitHub → protected pipeline → preview → production with full rollback capability</div>
-      </div>
-      <div class="wf-step reveal d5">
-        <div class="wf-circle">◈</div>
-        <div class="wf-title">Observe & Harden</div>
-        <div class="wf-sub">Instrument, log, detect anomalies. Deployed systems are living — not finished</div>
-      </div>
-    </div>
-
-    <div class="cc-grid">
-      <div class="cc-text reveal">
-        <div class="section-label" style="margin-bottom: 14px;">Claude Code</div>
-        <h3>I build with Claude Code every day.</h3>
-        <p>
-          Not as a shortcut — as a structured engineering partner. Architecture reasoning, security review, refactoring, and rapid prototyping. The discipline is knowing when to trust the output, when to override it, and when the AI is introducing risk you need to catch.
-        </p>
-        <p style="margin-top: 14px; color: var(--text-muted); font-size: 15px;">
-          This portfolio was engineered with Claude Code. The workflow above is the workflow I actually use — including the security review step.
-        </p>
-      </div>
-      <div class="reveal d2">
-        <div class="terminal">
-          <div class="terminal-bar">
-            <span class="dot-r"></span><span class="dot-y"></span><span class="dot-g"></span>
-          </div>
-          <div class="terminal-body">
-            <span class="tl"><span class="tl-prompt">$</span> claude "architect secure AI pipeline for enterprise data ingestion"</span>
-            <span class="tl tl-sys">▸ Mapping data flow & threat surface...</span>
-            <span class="tl tl-sys">▸ Proposing isolation boundaries...</span>
-            <span class="tl tl-sys">▸ HMAC validation layer added...</span>
-            <span class="tl tl-sys">▸ Splunk log schema defined...</span>
-            <span class="tl tl-sys">▸ Zero-retention paths confirmed...</span>
-            <span class="tl"><span class="tl-ok">✓</span> <span class="tl-out">Architecture reviewed · security hardened</span></span>
-            <span class="tl"><span class="tl-ok">✓</span> <span class="tl-out">Deployed · audit trail active</span></span>
-            <span class="tl"><span class="tl-prompt">$</span> <span class="cursor"></span></span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ━━ EXPERIENCE ━━ -->
-<section id="experience" style="border-top: 1px solid var(--border);">
-  <div class="container">
-    <div class="section-label reveal">Experience</div>
-    <h2 class="section-h reveal">Enterprise-scale analytical<br/>foundations. Real environments.</h2>
-
-    <div class="exp-layout">
+    <div class="exp-grid">
       <div class="exp-sidebar reveal">
         <div class="exp-item active">
-          <div class="exp-co" style="color: #fff;">Mercado Libre</div>
-          <div class="exp-role-tag">Data Intelligence · Enterprise Scale</div>
+          <div class="exp-co">Mercado Libre</div>
+          <div class="exp-role-tag" data-i18n="exp.ml.role">Data · Inteligencia Operacional</div>
         </div>
         <div class="exp-item">
           <div class="exp-co">Peroptyx</div>
-          <div class="exp-role-tag">Geographic Data · Map Intelligence</div>
+          <div class="exp-role-tag" data-i18n="exp.pt.role">Geographic Data · Map Intelligence</div>
         </div>
-        <div class="exp-item" style="border-color: rgba(199,243,107,.22); background: rgba(199,243,107,.02);">
-          <div class="exp-co accent">Fung Studio</div>
-          <div class="exp-role-tag">AI Engineering · Founder</div>
+        <div class="exp-item" style="border-color:rgba(199,243,107,.22);background:rgba(199,243,107,.02)">
+          <div class="exp-co green">Fung Studio</div>
+          <div class="exp-role-tag" data-i18n="exp.fs.role">AI Engineering · Fundador</div>
         </div>
       </div>
 
       <div class="exp-detail reveal d2">
-        <div class="exp-detail-header">
-          <h3>Data Analyst · Customer Intelligence · Geographic Data</h3>
+        <div class="exp-detail-head">
+          <h3 data-i18n="exp.detail.title">Analista de Datos · Inteligencia de Cliente · Datos Geográficos</h3>
           <div class="exp-period">Mercado Libre · Peroptyx · 2020 – 2024</div>
         </div>
-
-        <div class="exp-scale-bar">
-          <div class="exp-scale-item">
-            <div class="exp-scale-num">450M+</div>
-            <div class="exp-scale-label">Registered users</div>
-          </div>
-          <div class="exp-scale-item">
-            <div class="exp-scale-num">18</div>
-            <div class="exp-scale-label">Countries</div>
-          </div>
-          <div class="exp-scale-item">
-            <div class="exp-scale-num">Top 5</div>
-            <div class="exp-scale-label">Tech co. in LATAM</div>
-          </div>
-          <div class="exp-scale-item">
-            <div class="exp-scale-num">FAANG-tier</div>
-            <div class="exp-scale-label">Data complexity</div>
-          </div>
+        <div class="exp-stats">
+          <div class="exp-stat"><div class="exp-stat-num">450M+</div><div class="exp-stat-label" data-i18n="exp.stat1">Usuarios registrados</div></div>
+          <div class="exp-stat"><div class="exp-stat-num">18</div><div class="exp-stat-label" data-i18n="exp.stat2">Países operativos</div></div>
+          <div class="exp-stat"><div class="exp-stat-num">Top 5</div><div class="exp-stat-label" data-i18n="exp.stat3">Tech company en LATAM</div></div>
+          <div class="exp-stat"><div class="exp-stat-num">FAANG-tier</div><div class="exp-stat-label" data-i18n="exp.stat4">Complejidad de datos</div></div>
         </div>
-
         <div class="exp-detail-body">
-          <p>
-            Mercado Libre is not a regional startup — it is <strong>one of the most complex data environments in the Americas</strong>, processing hundreds of millions of transactions, user events, and fraud signals in real time across 18 countries. Working inside this environment shaped how I think about data at scale: not as rows in a dashboard, but as an operational intelligence layer that drives decisions under pressure.
+          <p data-i18n-html="exp.detail.p1">
+            Mercado Libre procesa cientos de millones de transacciones en tiempo real — pagos, fraude, comportamiento de usuario, logística — en un entorno donde los errores de datos tienen consecuencias operacionales reales. Trabajar ahí me formó en algo que no se aprende en proyectos pequeños: <strong>disciplina analítica en entornos donde la precisión y la trazabilidad no son opcionales.</strong>
           </p>
-          <p>
-            At Peroptyx, I worked on <strong>geographic data intelligence</strong> — interpreting map data, spatial analysis, and location-based data quality at scale. This type of data work — precise, structured, consequence-bearing — directly informs how I approach data governance in AI systems.
-          </p>
+          <p data-i18n-html="exp.detail.p2">En Peroptyx trabajé con <strong>datos geográficos e inteligencia espacial</strong> — análisis de calidad de datos de mapas a escala, validación estructurada y flujos de trabajo con consecuencias reales sobre productos usados por millones de personas.</p>
           <ul class="bullet-list">
-            <li><span class="b-dot"></span>Real-time dashboards and executive reporting for operational decisions at enterprise scale</li>
-            <li><span class="b-dot"></span>Customer behaviour analysis, experience metrics, and fraud-pattern signal interpretation</li>
-            <li><span class="b-dot"></span>Geographic data intelligence, spatial analysis, and multi-country data quality workflows</li>
-            <li><span class="b-dot"></span>Cross-functional data communication across engineering, product, and business stakeholders</li>
-            <li><span class="b-dot"></span>Workflow automation and process optimisation for high-volume operational pipelines</li>
-            <li><span class="b-dot"></span>Structured data analysis in environments where accuracy and auditability are non-negotiable</li>
+            <li><span class="bdot"></span><span data-i18n="exp.b1">Dashboards en tiempo real y reporting ejecutivo para decisiones operacionales</span></li>
+            <li><span class="bdot"></span><span data-i18n="exp.b2">Análisis de comportamiento de cliente, métricas de experiencia y detección de señales de fraude</span></li>
+            <li><span class="bdot"></span><span data-i18n="exp.b3">Inteligencia geográfica y análisis espacial multi-país a escala</span></li>
+            <li><span class="bdot"></span><span data-i18n="exp.b4">Comunicación de datos entre equipos de ingeniería, producto y negocio</span></li>
+            <li><span class="bdot"></span><span data-i18n="exp.b5">Optimización de workflows y automatización de procesos de alto volumen</span></li>
           </ul>
         </div>
       </div>
@@ -857,158 +628,332 @@
   </div>
 </section>
 
-<!-- ━━ STACK ━━ -->
-<section id="stack" style="border-top: 1px solid var(--border); background: rgba(0,0,0,.18);">
+<!-- STACK -->
+<section id="stack" style="border-top:1px solid var(--border);background:rgba(0,0,0,.18)">
   <div class="container">
     <div class="section-label reveal">Stack & Tools</div>
-    <h2 class="section-h reveal">What I build with.</h2>
-    <p class="section-sub reveal">Production tools — not a wishlist. Every item here has been used in a shipped system.</p>
-
+    <h2 class="section-h reveal" data-i18n="stack.h">Con qué construyo.</h2>
+    <p class="section-sub reveal" data-i18n="stack.sub">Herramientas usadas en proyectos reales desplegados — no una lista de deseos.</p>
     <div class="stack-wrap">
-      <span class="stack-tag featured reveal">Splunk Enterprise</span>
-      <span class="stack-tag featured reveal">Claude Code</span>
-      <span class="stack-tag reveal">Next.js</span>
-      <span class="stack-tag reveal">React</span>
-      <span class="stack-tag reveal">TypeScript</span>
-      <span class="stack-tag reveal">Tailwind CSS</span>
-      <span class="stack-tag reveal">Framer Motion</span>
-      <span class="stack-tag reveal">Node.js</span>
-      <span class="stack-tag reveal">Vercel</span>
-      <span class="stack-tag reveal">GitHub</span>
-      <span class="stack-tag reveal">OpenAI APIs</span>
-      <span class="stack-tag reveal">WhatsApp Cloud API</span>
-      <span class="stack-tag reveal">Webhook Architecture</span>
-      <span class="stack-tag reveal">HMAC Validation</span>
-      <span class="stack-tag reveal">REST APIs</span>
-      <span class="stack-tag reveal">Log Architecture</span>
-      <span class="stack-tag reveal">SIEM Concepts</span>
-      <span class="stack-tag reveal">CI/CD Pipelines</span>
-      <span class="stack-tag reveal">SQL</span>
-      <span class="stack-tag reveal">Power BI</span>
-      <span class="stack-tag reveal">Tableau</span>
-      <span class="stack-tag reveal">AI Workflow Design</span>
-      <span class="stack-tag reveal">Env Variable Mgmt</span>
+      <span class="stag ft reveal">Claude Code</span>
+      <span class="stag ft reveal">OpenAI APIs</span>
+      <span class="stag ft reveal">Splunk Enterprise</span>
+      <span class="stag reveal">Python</span>
+      <span class="stag reveal">Node.js</span>
+      <span class="stag reveal">Next.js</span>
+      <span class="stag reveal">React</span>
+      <span class="stag reveal">TypeScript</span>
+      <span class="stag reveal">Tailwind CSS</span>
+      <span class="stag reveal">Vercel</span>
+      <span class="stag reveal">GitHub</span>
+      <span class="stag reveal">WhatsApp Cloud API</span>
+      <span class="stag reveal">Webhook Architecture</span>
+      <span class="stag reveal">HMAC Validation</span>
+      <span class="stag reveal">REST APIs</span>
+      <span class="stag reveal">CI/CD Pipelines</span>
+      <span class="stag reveal">SIEM / Log Architecture</span>
+      <span class="stag reveal">SQL</span>
+      <span class="stag reveal">Power BI</span>
+      <span class="stag reveal">Tableau</span>
+      <span class="stag reveal">AI Workflow Design</span>
     </div>
   </div>
 </section>
 
-<!-- ━━ FOR NEVERHACK ━━ -->
-<section id="neverhack" class="nv-section" style="border-top: 1px solid var(--border);">
+<!-- FOR NEVERHACK -->
+<section id="neverhack" class="nv-section" style="border-top:1px solid var(--border)">
   <div class="container">
 
-    <!-- Neverhack logo recreation -->
-    <div class="nh-logo-block reveal">
-      <div class="nh-logo-svg">
-        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect width="22" height="22" rx="4" fill="rgba(199,243,107,0.12)" stroke="rgba(199,243,107,0.3)" stroke-width="1"/>
-          <path d="M5 16V6L11 14V6M11 14V6L17 16" stroke="#c7f36b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-        <span class="nh-logo-text">NEVERHACK</span>
-      </div>
-      <div class="nh-logo-sep"></div>
-      <div class="nh-logo-tagline">Sovereign cybersecurity<br/>Defence-grade expertise</div>
+    <div class="nh-badge reveal">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+        <rect width="20" height="20" rx="4" fill="rgba(199,243,107,0.1)" stroke="rgba(199,243,107,0.28)" stroke-width="1"/>
+        <path d="M4 15V5L10 13V5M10 13V5L16 15" stroke="#c7f36b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span class="nh-name">NEVERHACK</span>
+      <div class="nh-sep"></div>
+      <div class="nh-sub" data-i18n="nh.tagline">AI Automation & Integration<br/>Banking Sector · Spain</div>
     </div>
 
-    <div class="nv-layout">
+    <div class="nv-grid">
       <div class="reveal">
-        <div class="section-label" style="margin-bottom: 16px;">Why I'm applying</div>
-        <div class="nv-statement">
-          Sovereign AI. Defence-grade<br/>execution. <em>This is exactly<br/>where I want to build.</em>
-        </div>
-        <p class="nv-body">
-          NEVERHACK's three pillars — Sovereign Architecture, AI-Native Operations, and Defence-Grade Expertise — are not abstract to me. They map directly to the way I already think about systems: isolation-first, AI as a structured layer, and analytical rigour inherited from operating inside one of the most complex data environments in Latin America.
-        </p>
-        <p class="nv-body">
-          I understand what PROMETHEUS represents: AI orchestration at machine speed, operating on sovereign infrastructure with zero data exfiltration. That is the kind of architecture I want to be part of designing and scaling — not as an observer, but as a builder.
-        </p>
-        <p class="nv-body" style="font-size: 14px; color: var(--text-dim);">
-          I am based in Palma de Mallorca. On-site from day one.
-        </p>
-        <div class="buttons" style="margin-top: 28px;">
-          <a class="btn btn-primary" href="mailto:benitezbranco@outlook.com.ar">Contact me directly</a>
-          <a class="btn btn-ghost" href="https://www.linkedin.com/in/branco-benitez-1023b6191/" target="_blank">LinkedIn ↗</a>
+        <div class="section-label" style="margin-bottom:14px" data-i18n="section.neverhack">Por qué Neverhack</div>
+        <div class="nv-h" data-i18n-html="nv.h">El rol encaja con<br/>lo que <em>ya estoy construyendo.</em></div>
+        <p class="nv-p" data-i18n="nv.p1">AI Automation & Integration Engineer en sector bancario — diseñar e implementar soluciones de automatización con IA, integrar plataformas con sistemas bancarios internos a través de APIs, construir workflows automáticos. Eso es exactamente lo que hago: el WhatsApp AI Assistant es un sistema de automatización real con integración LLM y arquitectura API segura.</p>
+        <p class="nv-p" data-i18n="nv.p2">No vengo de banca. Vengo de datos empresariales a escala y de construir automatizaciones IA reales. La capacidad de traducir necesidades de negocio en soluciones técnicas — que es lo que el rol pide explícitamente — es exactamente donde mi perfil analítico y mi experiencia de construcción convergen.</p>
+        <p class="nv-p" style="font-size:14px;color:var(--dim)" data-i18n="nv.location">Basado en Palma de Mallorca. Disponible presencialmente desde el primer día.</p>
+        <div class="buttons" style="margin-top:26px">
+          <a class="btn btn-primary" href="tel:+34677198058" data-i18n="nv.cta1">Llamar ahora</a>
+          <a class="btn btn-ghost" href="mailto:benitezbranco@outlook.com.ar" data-i18n="nv.cta2">Enviar email →</a>
         </div>
       </div>
 
-      <!-- 3 Pillars alignment -->
-      <div class="pillars-grid reveal d2">
-        <div class="pillar-card">
-          <div class="pillar-head">
-            <span class="pillar-num">PILLAR 01</span>
-            <span class="pillar-title">Sovereign Architecture</span>
-          </div>
-          <div class="pillar-body">
-            I design systems with <strong>data isolation as a structural requirement</strong> — not a configuration option. Zero-retention paths, scoped secrets, and environment separation are defaults in every project I build. The principle of need-to-know is not a compliance checklist to me — it's an architectural decision I make at the design stage.
-          </div>
-        </div>
-        <div class="pillar-card">
-          <div class="pillar-head">
-            <span class="pillar-num">PILLAR 02</span>
-            <span class="pillar-title">AI-Native Operations</span>
-          </div>
-          <div class="pillar-body">
-            I build with AI as a structured engineering layer: <strong>architecture-first prompting, output validation, and human oversight at every critical gate</strong>. I understand the risks of unvalidated LLM outputs in operational systems — and I design around them. The same isolation discipline that PROMETHEUS requires at detection speed.
-          </div>
-        </div>
-        <div class="pillar-card">
-          <div class="pillar-head">
-            <span class="pillar-num">PILLAR 03</span>
-            <span class="pillar-title">Defence-Grade Expertise</span>
-          </div>
-          <div class="pillar-body">
-            I carry analytical rigour from <strong>enterprise-scale data environments</strong> where inaccuracy has real operational consequences. That discipline — precision, auditability, and systematic verification — is the same foundation that defence-grade security work demands. I am not arriving with the experience. I am arriving with the mindset.
-          </div>
-        </div>
-      </div>
+      <ul class="value-list reveal d2" style="margin-top:8px">
+        <li>
+          <span class="vi">◎</span>
+          <span><strong data-i18n="val1.title">Automatización IA funcional</strong> — <span data-i18n="val1.body">Tengo un sistema de automatización LLM en producción ahora mismo. No es un proyecto de clase — funciona para usuarios reales.</span></span>
+        </li>
+        <li>
+          <span class="vi">◎</span>
+          <span><strong data-i18n="val2.title">Integración de APIs</strong> — <span data-i18n="val2.body">WhatsApp Cloud API, OpenAI API, webhooks con validación HMAC. Sé cómo conectar plataformas externas con sistemas internos de forma segura.</span></span>
+        </li>
+        <li>
+          <span class="vi">◎</span>
+          <span><strong data-i18n="val3.title">Entornos regulados y de alto volumen</strong> — <span data-i18n="val3.body">Trabajé en Mercado Libre procesando datos de pagos y fraude a escala de 450M+ usuarios. Entiendo lo que significa precisión y trazabilidad donde los errores tienen consecuencias.</span></span>
+        </li>
+        <li>
+          <span class="vi">◎</span>
+          <span><strong data-i18n="val4.title">Velocidad de aprendizaje demostrada</strong> — <span data-i18n="val4.body">En menos de dos años pasé de analista de datos a construir plataformas full-stack con IA. El dominio bancario lo incorporo rápido — el mindset de arquitectura ya está.</span></span>
+        </li>
+        <li>
+          <span class="vi">◎</span>
+          <span><strong data-i18n="val5.title">Sin experiencia bancaria ficticia</strong> — <span data-i18n="val5.body">No vendo lo que no tengo. Tengo automatización IA real, integración de sistemas, datos a escala empresarial, y disposición completa para adquirir el contexto del sector rápido.</span></span>
+        </li>
+      </ul>
     </div>
-
-    <div class="audit-banner reveal">
-      <span class="audit-icon">// AUDIT NOTE</span>
-      <div class="audit-text">
-        This portfolio was built specifically for Neverhack after a deep analysis of your three core pillars, the PROMETHEUS platform narrative, and the IA Architect role requirements. <strong>The security section reflects real architectural practices I apply in my current projects</strong> — not a curated list of keywords. The Splunk Enterprise knowledge, AI workflow isolation patterns, and zero-retention design thinking are genuine competencies I am actively developing and applying as I move toward enterprise AI architecture. This is not a generic application. It is a deliberate one.
-      </div>
-    </div>
-
   </div>
 </section>
 
-<!-- ━━ FOOTER ━━ -->
-<footer id="contact">
+<!-- CONTACT -->
+<section id="contact" class="contact-section">
+  <div class="container">
+    <div class="section-label reveal" data-i18n="section.contact">Contacto</div>
+    <h2 class="section-h reveal" data-i18n="contact.h">Hablemos.</h2>
+
+    <div class="identity-bar reveal d1">
+      <div class="identity-item">
+        <span class="identity-label" data-i18n="id.name">Nombre</span>
+        <span class="identity-value">Branco Benitez</span>
+      </div>
+      <div class="identity-sep"></div>
+      <div class="identity-item">
+        <span class="identity-label" data-i18n="id.age">Edad</span>
+        <span class="identity-value">26 <span data-i18n="id.years">años</span></span>
+      </div>
+      <div class="identity-sep"></div>
+      <div class="identity-item">
+        <span class="identity-label" data-i18n="id.location">Ubicación</span>
+        <span class="identity-value">Palma de Mallorca, España</span>
+      </div>
+      <div class="identity-sep"></div>
+      <div class="identity-item">
+        <span class="identity-label" data-i18n="id.availability">Disponibilidad</span>
+        <span class="identity-value" data-i18n="id.immediate">Inmediata · Presencial</span>
+      </div>
+    </div>
+
+    <div class="contact-grid">
+      <a href="tel:+34677198058" class="contact-card reveal d1">
+        <span class="contact-icon">📞</span>
+        <div>
+          <div class="contact-label" data-i18n="contact.phone">Teléfono · Click para llamar</div>
+          <div class="contact-value">677 198 058</div>
+          <div class="contact-hint" data-i18n="contact.phone.hint">Disponible en horario laboral</div>
+        </div>
+      </a>
+      <a href="mailto:benitezbranco@outlook.com.ar" class="contact-card reveal d2">
+        <span class="contact-icon">✉️</span>
+        <div>
+          <div class="contact-label" data-i18n="contact.email">Email · Click para escribir</div>
+          <div class="contact-value">benitezbranco@outlook.com.ar</div>
+          <div class="contact-hint" data-i18n="contact.email.hint">Respuesta en menos de 24h</div>
+        </div>
+      </a>
+      <a href="https://www.linkedin.com/in/branco-benitez-1023b6191/" target="_blank" class="contact-card reveal d3">
+        <span class="contact-icon">💼</span>
+        <div>
+          <div class="contact-label">LinkedIn</div>
+          <div class="contact-value">branco-benitez</div>
+          <div class="contact-hint" data-i18n="contact.linkedin.hint">Perfil completo y verificado</div>
+        </div>
+      </a>
+      <a href="https://wearefung.com" target="_blank" class="contact-card reveal d4">
+        <span class="contact-icon">🌐</span>
+        <div>
+          <div class="contact-label" data-i18n="contact.studio">Estudio</div>
+          <div class="contact-value">wearefung.com</div>
+          <div class="contact-hint" data-i18n="contact.studio.hint">Proyectos en producción</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
   <div class="container">
     <div class="footer-row">
       <div class="footer-left">
         <div class="logo">BRANCO <span class="logo-accent">BENITEZ</span></div>
-        <p>AI Architect · Palma de Mallorca, Spain</p>
+        <p data-i18n="footer.sub">AI Automation & Integration · Palma de Mallorca, España</p>
       </div>
       <div class="footer-links">
-        <a href="mailto:benitezbranco@outlook.com.ar">benitezbranco@outlook.com.ar</a>
+        <a href="tel:+34677198058">677 198 058</a>
+        <a href="mailto:benitezbranco@outlook.com.ar">Email</a>
         <a href="https://www.linkedin.com/in/branco-benitez-1023b6191/" target="_blank">LinkedIn</a>
-        <a href="https://wearefung.com" target="_blank">Fung Studio</a>
+        <a href="https://wearefung.com" target="_blank">Fung</a>
       </div>
     </div>
   </div>
 </footer>
 
 <script>
-  const hdr = document.getElementById('site-header');
-  window.addEventListener('scroll', () => {
-    hdr.classList.toggle('scrolled', window.scrollY > 40);
-  }, { passive: true });
+  /* ── Sticky header ── */
+  const hdr = document.getElementById('hdr');
+  window.addEventListener('scroll', () => hdr.classList.toggle('scrolled', window.scrollY > 40), { passive: true });
 
+  /* ── Scroll reveal ── */
   const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
-    });
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
   }, { threshold: 0.08, rootMargin: '0px 0px -50px 0px' });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-  document.querySelectorAll('.card, .proj-card, .sec-card').forEach(card => {
-    card.addEventListener('mousemove', e => {
-      const r = card.getBoundingClientRect();
-      card.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100) + '%');
-      card.style.setProperty('--my', ((e.clientY - r.top)  / r.height * 100) + '%');
+  /* ── Mouse glow on cards ── */
+  document.querySelectorAll('.card, .proj-card').forEach(c => {
+    c.addEventListener('mousemove', e => {
+      const r = c.getBoundingClientRect();
+      c.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100) + '%');
+      c.style.setProperty('--my', ((e.clientY - r.top)  / r.height * 100) + '%');
     });
   });
+
+  /* ── i18n ── */
+  const translations = {
+    es: {
+      'nav.profile': 'Perfil', 'nav.projects': 'Proyectos',
+      'nav.experience': 'Experiencia', 'nav.neverhack': 'Para Neverhack', 'nav.contact': 'Contacto',
+      'hero.eyebrow': 'AI Automation & Integration Engineer · Sector Bancario · Palma de Mallorca',
+      'hero.h1': 'Automatizo flujos de negocio<br/>con <em>IA real.</em><br/>Integro. Despliego. Funciona.',
+      'hero.sub': 'Diseño e implemento sistemas de automatización con IA — integraciones LLM, pipelines API y workflows — con foco en fiabilidad operacional y manejo seguro de datos en entornos regulados.',
+      'metric.approach': 'Enfoque de trabajo', 'metric.users': 'Usuarios · Datos empresariales',
+      'metric.age': 'Años · Palma de Mallorca', 'metric.systems': 'Sistemas IA desplegados',
+      'hero.cta1': 'Ver propuesta', 'hero.cta2': 'Contactar →',
+      'status': 'Disponible · Palma de Mallorca',
+      'section.profile': 'Perfil', 'section.projects': 'Proyectos',
+      'section.experience': 'Experiencia', 'section.neverhack': 'Por qué Neverhack',
+      'section.contact': 'Contacto',
+      'profile.h': 'Bases analíticas reales.<br/>Trayectoria hacia IA aplicada.',
+      'profile.p1': 'Comencé mi carrera como analista de datos en <strong>Mercado Libre</strong> — uno de los entornos de datos más complejos de América Latina, con más de 450M de usuarios en 18 países. Eso me formó en algo que no se aprende en proyectos pequeños: intuición real sobre cómo los datos fluyen en sistemas de producción a escala empresarial, dónde fallan, y cómo extraer inteligencia operacional bajo presión.',
+      'profile.p2': 'Hoy construyo <strong>sistemas de automatización con IA</strong>: pipelines de webhooks, integraciones LLM, plataformas full-stack y workflows automáticos. No pretendo ser un senior architect con 15 años en banca. Soy un perfil en transición activa, con proyectos reales en producción y velocidad de aprendizaje demostrada con resultados concretos.',
+      'profile.p3': 'Lo que traigo a Neverhack no es experiencia bancaria ficticia. Es un <strong>mindset orientado a arquitectura, velocidad real de aprendizaje, y sistemas de automatización IA funcionando en producción ahora mismo.</strong>',
+      'trans.from': 'Origen', 'trans.to': 'Hacia',
+      'projects.h': 'Automatización real.<br/>Desplegada. Funcionando.',
+      'projects.sub': 'Arquitecturas reales con decisiones reales — no demos ni tutoriales.',
+      'proj.automation': 'Automatización',
+      'proj1.desc': 'Sistema de automatización conversacional con arquitectura webhook, validación HMAC, capas LLM aisladas e integración segura con APIs externas. Diseñado para workflows de negocio reales.',
+      'proj2.desc': 'Estudio tecnológico construido sobre ingeniería AI-assisted. Next.js, Vercel Edge, pipeline CI/CD y arquitectura de producción desde el primer día.',
+      'proj3.title': 'Plataforma Multilingüe IA',
+      'proj3.desc': 'Plataforma Next.js con arquitectura i18n, optimización SSG y pipeline CI/CD completo — multilingüe, performante, en producción.',
+      'exp.h': 'Entornos de datos reales.<br/>Escala empresarial real.',
+      'exp.ml.role': 'Data · Inteligencia Operacional', 'exp.pt.role': 'Geographic Data · Map Intelligence', 'exp.fs.role': 'AI Engineering · Fundador',
+      'exp.detail.title': 'Analista de Datos · Inteligencia de Cliente · Datos Geográficos',
+      'exp.stat1': 'Usuarios registrados', 'exp.stat2': 'Países operativos', 'exp.stat3': 'Tech company en LATAM', 'exp.stat4': 'Complejidad de datos',
+      'exp.detail.p1': 'Mercado Libre procesa cientos de millones de transacciones en tiempo real — pagos, fraude, comportamiento de usuario — en un entorno donde los errores de datos tienen consecuencias operacionales reales. Eso me formó en <strong>disciplina analítica donde la precisión y la trazabilidad no son opcionales.</strong>',
+      'exp.detail.p2': 'En Peroptyx trabajé con <strong>datos geográficos e inteligencia espacial</strong> — análisis de calidad de datos de mapas a escala global, con consecuencias reales sobre productos usados por millones de personas.',
+      'exp.b1': 'Dashboards en tiempo real y reporting ejecutivo para decisiones operacionales',
+      'exp.b2': 'Análisis de comportamiento de cliente, métricas de experiencia y detección de señales de fraude',
+      'exp.b3': 'Inteligencia geográfica y análisis espacial multi-país a escala',
+      'exp.b4': 'Comunicación de datos entre equipos de ingeniería, producto y negocio',
+      'exp.b5': 'Optimización de workflows y automatización de procesos de alto volumen',
+      'stack.h': 'Con qué construyo.', 'stack.sub': 'Herramientas usadas en proyectos reales — no una lista de deseos.',
+      'nh.tagline': 'AI Automation & Integration\nBanking Sector · Spain',
+      'nv.h': 'El rol encaja con<br/>lo que <em>ya estoy construyendo.</em>',
+      'nv.p1': 'AI Automation & Integration Engineer en sector bancario — diseñar e implementar soluciones de automatización IA, integrar plataformas con sistemas internos a través de APIs, construir workflows automáticos. Eso es exactamente lo que hago: el WhatsApp AI Assistant es un sistema de automatización real con integración LLM y arquitectura API segura.',
+      'nv.p2': 'No vengo de banca. Vengo de datos empresariales a escala y de construir automatizaciones IA reales. La capacidad de traducir necesidades de negocio en soluciones técnicas — que el rol pide explícitamente — es exactamente donde mi perfil analítico y mi experiencia de construcción convergen.',
+      'nv.location': 'Basado en Palma de Mallorca. Disponible presencialmente desde el primer día.',
+      'nv.cta1': 'Llamar ahora', 'nv.cta2': 'Enviar email →',
+      'val1.title': 'Automatización IA funcional', 'val1.body': 'Tengo un sistema de automatización LLM en producción ahora mismo. No es un proyecto de clase — funciona para usuarios reales.',
+      'val2.title': 'Integración de APIs', 'val2.body': 'WhatsApp Cloud API, OpenAI API, webhooks HMAC. Sé cómo conectar plataformas externas con sistemas internos de forma segura.',
+      'val3.title': 'Entornos de alto volumen', 'val3.body': 'Trabajé en Mercado Libre procesando datos de pagos y fraude a escala de 450M+ usuarios. Entiendo precisión y trazabilidad donde los errores tienen consecuencias.',
+      'val4.title': 'Velocidad de aprendizaje', 'val4.body': 'En menos de dos años pasé de analista de datos a construir plataformas full-stack con IA. El dominio bancario lo incorporo rápido — el mindset ya está.',
+      'val5.title': 'Sin experiencia ficticia', 'val5.body': 'No vendo lo que no tengo. Tengo automatización IA real, integración de sistemas, datos a escala empresarial, y disposición para adquirir el contexto bancario rápido.',
+      'contact.h': 'Hablemos.',
+      'id.name': 'Nombre', 'id.age': 'Edad', 'id.years': 'años', 'id.location': 'Ubicación', 'id.availability': 'Disponibilidad', 'id.immediate': 'Inmediata · Presencial',
+      'contact.phone': 'Teléfono · Click para llamar', 'contact.phone.hint': 'Disponible en horario laboral',
+      'contact.email': 'Email · Click para escribir', 'contact.email.hint': 'Respuesta en menos de 24h',
+      'contact.linkedin.hint': 'Perfil completo y verificado',
+      'contact.studio': 'Estudio', 'contact.studio.hint': 'Proyectos en producción',
+      'footer.sub': 'AI Automation & Integration · Palma de Mallorca, España',
+    },
+    en: {
+      'nav.profile': 'Profile', 'nav.projects': 'Projects',
+      'nav.experience': 'Experience', 'nav.neverhack': 'For Neverhack', 'nav.contact': 'Contact',
+      'hero.eyebrow': 'AI Automation & Integration Engineer · Banking Sector · Palma de Mallorca',
+      'hero.h1': 'Automating business workflows<br/>with <em>real AI.</em><br/>Integrate. Deploy. Works.',
+      'hero.sub': 'I design and build AI automation systems — LLM integrations, API pipelines, and workflows — focused on operational reliability and secure data handling in regulated environments.',
+      'metric.approach': 'Engineering approach', 'metric.users': 'Users · Enterprise data',
+      'metric.age': 'Years old · Palma de Mallorca', 'metric.systems': 'AI systems deployed',
+      'hero.cta1': 'View proposal', 'hero.cta2': 'Contact →',
+      'status': 'Available · Palma de Mallorca',
+      'section.profile': 'Profile', 'section.projects': 'Projects',
+      'section.experience': 'Experience', 'section.neverhack': 'Why Neverhack',
+      'section.contact': 'Contact',
+      'profile.h': 'Real analytical foundations.<br/>Active AI engineering trajectory.',
+      'profile.p1': 'I started my career as a data analyst at <strong>Mercado Libre</strong> — one of Latin America\'s most complex data environments, with 450M+ users across 18 countries. That built something you don\'t get from small projects: real intuition for how data flows through enterprise-scale production systems, where it breaks, and how to extract operational intelligence under pressure.',
+      'profile.p2': 'Today I build <strong>AI automation systems</strong>: webhook pipelines, LLM integrations, full-stack platforms, and automated workflows. I\'m not claiming to be a senior architect with 15 years in banking. I\'m an actively transitioning engineer with real projects in production and a demonstrated track record of rapid learning.',
+      'profile.p3': 'What I bring to Neverhack is not fictional banking experience. It\'s an <strong>architecture-first mindset, real learning velocity, and AI automation systems running in production right now.</strong>',
+      'trans.from': 'Background', 'trans.to': 'Current trajectory',
+      'projects.h': 'Real automation.<br/>Deployed. Working.',
+      'projects.sub': 'Real architecture decisions with real consequences — not demos or tutorials.',
+      'proj.automation': 'Automation',
+      'proj1.desc': 'Conversational automation system with webhook architecture, HMAC validation, isolated LLM processing layers, and secure external API integration. Built for real business workflows.',
+      'proj2.desc': 'Technology studio built on AI-assisted engineering. Next.js, Vercel Edge, CI/CD pipeline and production-grade architecture from day one.',
+      'proj3.title': 'Multilingual AI Platform',
+      'proj3.desc': 'Next.js platform with i18n routing architecture, SSG optimisation, and full CI/CD pipeline — multilingual, performant, in production.',
+      'exp.h': 'Real data environments.<br/>Real enterprise scale.',
+      'exp.ml.role': 'Data · Operational Intelligence', 'exp.pt.role': 'Geographic Data · Map Intelligence', 'exp.fs.role': 'AI Engineering · Founder',
+      'exp.detail.title': 'Data Analyst · Customer Intelligence · Geographic Data',
+      'exp.stat1': 'Registered users', 'exp.stat2': 'Operating countries', 'exp.stat3': 'Tech company in LATAM', 'exp.stat4': 'Data complexity',
+      'exp.detail.p1': 'Mercado Libre processes hundreds of millions of transactions in real time — payments, fraud, user behaviour — in an environment where data errors have real operational consequences. That shaped <strong>analytical discipline where accuracy and traceability are non-negotiable.</strong>',
+      'exp.detail.p2': 'At Peroptyx I worked with <strong>geographic data and spatial intelligence</strong> — map data quality analysis at global scale, with real consequences on products used by millions.',
+      'exp.b1': 'Real-time dashboards and executive reporting for operational decisions',
+      'exp.b2': 'Customer behaviour analysis, experience metrics, and fraud signal detection',
+      'exp.b3': 'Geographic intelligence and multi-country spatial analysis at scale',
+      'exp.b4': 'Data communication across engineering, product, and business teams',
+      'exp.b5': 'Workflow optimisation and high-volume process automation',
+      'stack.h': 'What I build with.', 'stack.sub': 'Tools used in real deployed projects — not a wishlist.',
+      'nh.tagline': 'AI Automation & Integration\nBanking Sector · Spain',
+      'nv.h': 'The role matches<br/>what <em>I\'m already building.</em>',
+      'nv.p1': 'AI Automation & Integration Engineer in the banking sector — design and implement AI automation solutions, integrate platforms with internal banking systems via APIs, build automated workflows. That\'s exactly what I do: the WhatsApp AI Assistant is a real automation system with LLM integration and secure API architecture.',
+      'nv.p2': 'I\'m not coming from banking. I\'m coming from enterprise-scale data and real AI automation. The ability to translate business needs into technical solutions — which the role explicitly asks for — is exactly where my analytical background and engineering experience converge.',
+      'nv.location': 'Based in Palma de Mallorca. Available on-site from day one.',
+      'nv.cta1': 'Call now', 'nv.cta2': 'Send email →',
+      'val1.title': 'Functional AI automation', 'val1.body': 'I have an LLM automation system running in production right now. Not a class project — it works for real users.',
+      'val2.title': 'API integration', 'val2.body': 'WhatsApp Cloud API, OpenAI API, HMAC webhooks. I know how to connect external platforms to internal systems securely.',
+      'val3.title': 'High-volume regulated environments', 'val3.body': 'I worked at Mercado Libre processing payment and fraud data at 450M+ user scale. I understand precision and traceability where errors have real consequences.',
+      'val4.title': 'Learning velocity', 'val4.body': 'In under two years I went from data analyst to building full-stack AI platforms. Banking domain knowledge — I pick it up fast. The architecture mindset is already there.',
+      'val5.title': 'No fictional experience', 'val5.body': 'I don\'t sell what I don\'t have. I have real AI automation, systems integration, enterprise-scale data, and the commitment to absorb banking context fast.',
+      'contact.h': 'Let\'s talk.',
+      'id.name': 'Name', 'id.age': 'Age', 'id.years': 'years old', 'id.location': 'Location', 'id.availability': 'Availability', 'id.immediate': 'Immediate · On-site',
+      'contact.phone': 'Phone · Click to call', 'contact.phone.hint': 'Available during business hours',
+      'contact.email': 'Email · Click to write', 'contact.email.hint': 'Response within 24h',
+      'contact.linkedin.hint': 'Full verified profile',
+      'contact.studio': 'Studio', 'contact.studio.hint': 'Live projects',
+      'footer.sub': 'AI Automation & Integration · Palma de Mallorca, Spain',
+    }
+  };
+
+  let currentLang = 'es';
+
+  function setLang(lang) {
+    currentLang = lang;
+    document.documentElement.setAttribute('data-lang', lang);
+    document.getElementById('btn-es').classList.toggle('active', lang === 'es');
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+
+    const t = translations[lang];
+
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (t[key] !== undefined) el.textContent = t[key];
+    });
+
+    document.querySelectorAll('[data-i18n-html]').forEach(el => {
+      const key = el.getAttribute('data-i18n-html');
+      if (t[key] !== undefined) el.innerHTML = t[key];
+    });
+  }
+
+  // Init ES as active
+  document.getElementById('btn-es').classList.add('active');
 </script>
 
 </body>
